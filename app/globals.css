@@ -52,3 +52,26 @@ body {
   background: var(--color-accent);
   border-radius: 2px;
 }
+
+/* ── Tipp-Cursor für das Motto ── */
+
+.typewriter-cursor {
+  color: var(--color-accent);
+  font-weight: 400;
+  margin-left: 0.05em;
+  -webkit-text-fill-color: var(--color-accent);
+}
+
+.typewriter-cursor.blinking {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
