@@ -75,3 +75,110 @@ body {
     opacity: 0;
   }
 }
+
+/* ── Motto-Animationen (vom getippten Text getriggert) ── */
+
+.motto-anim {
+  position: fixed;
+  pointer-events: none;
+  z-index: 20;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  will-change: transform, opacity;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+/* 🤿 Taucher: schwimmt unten von links nach rechts vorbei */
+.motto-anim.diver {
+  bottom: 16%;
+  left: -12vw;
+  animation: dive-swim 5.5s ease-in-out forwards;
+}
+
+@keyframes dive-swim {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-6deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(33vw) translateY(-16px) rotate(6deg);
+  }
+  50% {
+    transform: translateX(62vw) translateY(10px) rotate(-6deg);
+  }
+  75% {
+    transform: translateX(92vw) translateY(-12px) rotate(6deg);
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(128vw) translateY(0) rotate(-6deg);
+    opacity: 0;
+  }
+}
+
+/* ✈️ Flugzeug: fliegt oben von rechts nach links vorbei */
+.motto-anim.plane {
+  top: 14%;
+  right: -12vw;
+  animation: plane-fly 4.5s ease-in forwards;
+}
+
+@keyframes plane-fly {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-10deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-62vw) translateY(-18px) rotate(-10deg);
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-128vw) translateY(0) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+/* 🧭 Reisekompass: taucht unten mittig auf und sucht die Richtung */
+.motto-anim.compass {
+  bottom: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center center;
+  animation: compass-fade 0.8s ease-out forwards,
+    compass-seek 2.8s ease-in-out 0.8s infinite;
+}
+
+@keyframes compass-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes compass-seek {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(-22deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(22deg);
+  }
+}
+
+/* Barrierefrei: bei reduzierter Bewegung keine fliegenden Figuren */
+@media (prefers-reduced-motion: reduce) {
+  .motto-anim {
+    display: none;
+  }
+}
