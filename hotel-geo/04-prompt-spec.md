@@ -41,7 +41,7 @@ Anforderungen an die Ausgabe (JSON-Array):
 | Direct-Ask-Set | ~20 % | Fakten-Provokation: "Erzähl mir über [Hotel X] — Preise, Ausstattung, lohnt es sich?" → maximiert extrahierbare Claims für den Fakten-Check |
 
 Größen: **Voll-Audit** 60–120 Prompts (nach Sprachanzahl), **Mini-Audit** = markiertes, stabiles
-Subset von 15–20 (höchstgewichtete Discovery-Prompts + 3 Direct-Ask, max. 2 Sprachen).
+Subset von 15–20 (höchstgewichtete Discovery-Prompts + 3 Direct-Ask; Sprachen: immer DE + EN).
 
 ### 1.4 Versionierung & Vergleichbarkeit
 
@@ -167,8 +167,10 @@ Sprache), in denen er empfohlen wird und das Zielhotel nicht, sortiert nach Gewi
 ## 6. Wettbewerber-Erkennung (COMPETITORS, SYNTHESIZER)
 
 1. Kandidaten = alle `unknown`-Hotels aus Extraktionen, sortiert nach Empfehlungshäufigkeit.
-2. SYNTHESIZER-Kuration mit Hotelprofil: wähle 3–5 mit gleicher Kategorie (±1 Stern), ähnlichem
+2. SYNTHESIZER-Kuration mit Hotelprofil: wähle **genau 5** mit gleicher Kategorie (±1 Stern), ähnlichem
    Preisband, gleicher Destination; Ausgabe mit Begründung pro Auswahl (Admin-sichtbar).
+   Liefert das Segment weniger als 5 Kandidaten, wird mit den nächstähnlichen aufgefüllt
+   (erst Kategorie ±1, dann Nachbar-Destination) — es sind kundenseitig **immer 5 Slots**.
 3. Persistiert als `competitor_links(source=auto)`; Admin-Override setzt `source=manual` und ist
    für Folge-Audits bindend. Wettbewerber-Scores entstehen aus den vorhandenen Antworten (§1.4) —
    ein Override kostet keine neuen Abfragen, nur Neuberechnung; manuell ergänzte Hotels, die in

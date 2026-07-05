@@ -40,7 +40,7 @@ Akzeptanzkriterien, reviewt Diffs.
 | P1.6 | EXTRACT-Step: Extraktions-Prompt, Zod-Schema, Alias-/Fuzzy-Normalisierung im Code, `injection_suspected`-Pfad | 04 §3, 03 §5 | Golden-Tests: 10 Fixture-Antworten → erwartete Mentions/Claims |
 | P1.7 | FACTCHECK-Step: Retrieval (Keyword/Abschnitt), Verdikt-Prompt, Preis-Toleranz, Claim-Dedupe | 04 §4 | Golden-Tests inkl. ±15 %-Preisregel |
 | P1.8 | `ScoringService`: Formeln 04 §5 deterministisch + `methodology_version` | 04 §5 | Property-Tests (Grenzen 0/100, Gewichts-Summen) |
-| P1.9 | COMPETITORS-Step: Kandidaten-Aggregation, Kurations-Prompt, `competitor_links`; Wettbewerber-Scores aus vorhandenen Antworten (keine Extra-Abfragen!) | 04 §6 | Fixture-Flow: auto-Auswahl 3–5, Override bindend, Override → nur Neuberechnung |
+| P1.9 | COMPETITORS-Step: Kandidaten-Aggregation, Kurations-Prompt, `competitor_links`; Wettbewerber-Scores aus vorhandenen Antworten (keine Extra-Abfragen!) | 04 §6 | Fixture-Flow: auto-Auswahl genau 5 (Auffüll-Regel bei dünnem Segment), Override bindend, Override → nur Neuberechnung |
 | P1.10 | `AuditOrchestrator`: Job-Kette PREPARE→…→NOTIFY, Resume nach Crash, Statusmodell | 02 §5 | Integrationstest (alles gemockt): mini-Run end-to-end < deterministisch grün |
 | P1.11 | Technik-Check (H1): robots.txt-AI-Bots, llms.txt, Schema.org-Präsenz, SSR-Lesbarkeit, Latenz → `tech_checks`; deterministisch, keine LLM-Calls | 06 H1 | Fixture-Tests pro Check; Ergebnis im Vollreport-DTO |
 

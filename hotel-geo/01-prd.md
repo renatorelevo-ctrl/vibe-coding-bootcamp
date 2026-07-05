@@ -98,7 +98,7 @@ Zeigt genau drei Dinge, nicht mehr:
 
 1. **AI-Sichtbarkeits-Score** (0–100) mit Ampel-Einordnung ("Ihr Hotel wird bei X% der relevanten
    Anfragen empfohlen").
-2. **Anonymer Wettbewerbsvergleich:** Balkendiagramm mit "Hotel A–E" (3–5 Hotels gleicher
+2. **Anonymer Wettbewerbsvergleich:** Balkendiagramm mit "Hotel A–E" (immer genau 5 Hotels gleicher
    Kategorie/Preisklasse/Region). Aussage: "3 von 5 vergleichbaren Hotels werden häufiger
    empfohlen als Sie."
 3. **Fehler-Zähler:** "Wir haben **N potenziell falsche Aussagen** über Ihr Hotel in AI-Antworten
@@ -139,8 +139,8 @@ liefert der Monats-Report direkt die passende Maßnahme/den Textentwurf mit.
   Verkaufsargument: "Wir überwachen kontinuierlich — Sie hören von uns nur, wenn es wichtig
   ist." Keine Mail-Flut.
 
-**Sprachen im Abo inklusive:** bis zu **5 Audit-Sprachen** (DE + EN immer, bis zu 3 weitere
-frei wählbar, z. B. KO/ZH/JA/FR/IT) — jederzeit im Portal aktivierbar, ohne Aufpreis
+**Sprachen im Abo inklusive — fixe Struktur, 5 Slots:** DE + EN immer automatisch, ab Kauf/Abo
+drei weitere Sprachen nach Wahl (z. B. KO/ZH/JA/FR/IT) — jederzeit im Portal aktivierbar, ohne Aufpreis
 (Mehrkosten für uns: ~2–3 €/Sprache/Monat). Ablauf: Sprache aktivieren → System generiert
 muttersprachliche Prompt-Batterie (eigene Batterie-Version nur für diese Sprache; bestehende
 Sprachen bleiben vergleichbar) → ab dem nächsten Monats-Audit inklusive Sprach-Sektion im
@@ -207,11 +207,14 @@ vorangekreuzt). Ohne Einwilligung: kein Re-Audit, keine Mail.
 
 ### M2 — Wettbewerbs-Modul
 
-- **Free (automatisch):** Kandidaten aus den Audit-Antworten (wer wird stattdessen empfohlen?)
-  + LLM-Filter auf gleiche Kategorie, Preisklasse, Region → 3–5 Wettbewerber. Teaser zeigt sie
-  nur anonymisiert.
-- **Bezahlversion (selbst wählbar):** Käufer/Abo-Kunden legen ihre direkten Konkurrenten selbst
-  fest (max. 5; im Portal bzw. nach Report-Kauf); zusätzlich Admin-Override. Änderungen kosten
+**Fixe Struktur, kundenseitig wie im Backend: immer genau 5 Wettbewerber-Slots.**
+
+- **Free (automatisch):** Das System wählt automatisch 5 Wettbewerber (aus den Audit-Antworten:
+  wer wird stattdessen empfohlen? + LLM-Filter auf gleiche Kategorie, Preisklasse, Region).
+  Findet das Segment weniger als 5 Kandidaten, wird mit den nächstähnlichen aufgefüllt.
+  Teaser zeigt sie nur anonymisiert; keine manuelle Wahl in der Free-Version.
+- **Bezahlversion (manuell umstellbar):** Käufer/Abo-Kunden können jeden der 5 Slots manuell
+  ersetzen (im Portal bzw. nach Report-Kauf); zusätzlich Admin-Override. Änderungen kosten
   keine neuen Abfragen — Scores werden aus den vorhandenen Antworten neu berechnet.
 - **Score-Vergleich im Booking-Stil:** kundenseitig überall 10-Punkte-Skala mit einer
   Dezimalstelle ("Sie: 6,5 / 10 — [Wettbewerber]: 7,5 / 10").
@@ -324,8 +327,10 @@ Wiedererkennbarkeit der Marke, Vergleichbarkeit, minimaler Pflegeaufwand.
   (vorbelegt aus Browser-Sprache). Das Hotel wird darauf **gepinnt**: alle Mails, Teaser,
   Reports, Portal erscheinen konsistent in dieser Sprache. Änderbar im Portal/Admin, wechselt
   nie automatisch.
-- **Audit-Sprachen (davon getrennt):** Default DE + EN; ab Vollreport/Abo pro Hotel
-  konfigurierbar (FR/IT/NL/ES/…). Mini-Audit: max. 2 Sprachen.
+- **Audit-Sprachen (davon getrennt) — fixe Struktur: 5 Slots.** DE + EN werden **immer
+  automatisch** erstellt (Free wie Bezahlt). Ab Kauf/Abo werden die Slots 3–5 freigeschaltet:
+  drei weitere Sprachen nach Wahl (KO/ZH/JA/FR/IT/NL/ES/…). Free-Version: nur DE + EN,
+  keine Wahlmöglichkeit.
 - **Gästemix-Sprachberatung (Bezahlversion):** Beim Kauf/Abo wird der Gästemix abgefragt
   ("Woher kommen Ihre Gäste hauptsächlich?"). Das Playbook vergleicht Gästemix mit
   Sichtbarkeit pro Sprache und empfiehlt konkret: Inhalte in Sprache X erstellen/übersetzen,
