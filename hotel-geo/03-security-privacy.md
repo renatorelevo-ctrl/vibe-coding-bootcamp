@@ -41,7 +41,7 @@ bleiben als öffentliche Entität bestehen, Owner-Verknüpfung wird entfernt).
 | Dienst | Zweck | Sitz/Region | Hinweis |
 |---|---|---|---|
 | Vercel (fra1) / Alternative Hetzner | Hosting | EU-Region | AVV abschließen |
-| Neon/Supabase | DB | EU (Frankfurt) | AVV |
+| Supabase | DB, Auth, Storage | EU (Frankfurt) | AVV; managed Backups, Restore-Test trotzdem dokumentieren |
 | Brevo | E-Mail | EU (FR) | AVV |
 | Stripe | Payment | EU-Entity, US-Transfer möglich | DPF-zertifiziert, SCCs |
 | OpenAI, Anthropic, Google, Perplexity | LLM-APIs | US, DPF/SCCs | **API-Daten werden standardmäßig nicht fürs Training genutzt** (im DPA dokumentieren). Inhalte sind fast ausschließlich öffentliche Hoteldaten — Personenbezug minimal. Regel: **niemals Lead-E-Mails oder Kundendaten in LLM-Prompts.** |
