@@ -41,6 +41,9 @@ persönliche Beratung.
 | 13 | Hosting/Datenschutz | EU-Datenhaltung, DSGVO-konform, keine Gästedaten im System |
 | 14 | Sichtbarkeits-Hebel | Optimierung = Playbook über 6 Hebel (Technik, Content, Google Business, Reviews, Digital-PR, Entität), nicht nur Website (→ 06) |
 | 15 | Synthese-Kosten | Hybrid: Massenarbeit über Billig-APIs (Cents); hochwertige Synthesen (Optimierungspaket) im **Operator-Modus** via Claude Code + Abo des Betreibers (human-in-the-loop, 0 € API), pro Schritt auf `api` umschaltbar |
+| 16 | Eingangswege | Zwei Wege, eine Pipeline: Self-Service-Funnel **und** manuelle Hotel-Anlage im Admin (Betreiber wird direkt kontaktiert) |
+| 17 | Kontaktdaten & AGB | Pflicht-Ansprechpartner (Name, Position, E-Mail, Telefon) ab Kauf/Abo — Gratis-Teaser bewusst nur E-Mail; AGB-Checkbox versioniert protokolliert |
+| 18 | Oberflächen | Admin-Dashboard als visuelle Startseite (KPIs, Handlungsliste, Benachrichtigungen an Betreiber bei Kauf/Abo/Synthese); grafisches **Kundenportal** für Abo-Kunden (F-I, Magic-Link) |
 
 ## Status
 

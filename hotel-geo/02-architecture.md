@@ -88,7 +88,14 @@ explizit human-in-the-loop. Umschalten auf `api` jederzeit möglich (Skalierungs
 leads            id, email, status(pending|verified|customer), verify_token, created_at,
                  consent_at, utm_json
 hotels           id, name, city, country, website_url, booking_url?, category(stars),
-                 price_band(1-4), languages[], report_language, owner_lead_id?, created_at
+                 price_band(1-4), languages[], report_language, owner_lead_id?,
+                 intake(self_service|manual), created_at
+contacts         id, hotel_id, name, position, email, phone, is_primary, created_at
+                 -- Pflicht-Ansprechpartner ab Kauf/Abo bzw. bei manueller Anlage
+terms_acceptances id, subject(lead|portal_user), subject_id, terms_version, accepted_at
+                 -- revisionssicherer AGB-Nachweis (Checkbox nie vorangekreuzt)
+portal_users     id, hotel_id, contact_id, email, status, last_login_at
+                 -- Magic-Link-Auth, nur für Abo-Kunden (F-I)
 competitor_links hotel_id, competitor_hotel_id, source(auto|manual), rank, active
 batteries        id, hotel_id, version, language, prompts_json[], created_by_model, created_at
 audit_runs       id, hotel_id, type(mini|full|monthly|light_check), battery_id, status,
@@ -190,10 +197,32 @@ pausieren (`status=budget_exceeded`), Admin-Alert. Globales Tagesbudget analog (
 
 ## 7. Admin-Backend
 
-Magic-Link-Auth (nur `admin_users`). Ansichten: Leads/Funnel-Status, Hotels (inkl. Wettbewerber-
-Override mit Suche/Anlage), Audit-Runs (Status, Kosten, Logs, Re-Run), Bestellungen/Abos (Stripe-
-Links), Reports (Vorschau, Regenerieren, Freigabe optional), Kosten-Dashboard (Tages-/Monats-
-API-Ausgaben je Provider), Settings (Preise, Modelle, Budgets, Feature-Flags), Benchmark-Ansicht.
+Magic-Link-Auth (nur `admin_users`).
+
+**Startseite = Dashboard (der Betreiber ist visueller Typ — das ist die wichtigste Admin-Seite):**
+KPI-Kacheln (neue Leads 7 Tage, Hotels gesamt, aktive Abos, MRR, offene Synthese-Aufgaben,
+API-Kosten Monat) + Aktivitäts-Feed (letzte Käufe/Abos/Alerts) + Handlungsliste ("dein Teil":
+wartende Synthese-Bundles, Review-fällige Reports).
+
+Weitere Ansichten: Leads/Funnel-Status; Hotels-Liste (Ansprechpartner mit Kontaktdaten,
+Abo-Status, letzter Score + Trend-Pfeil) mit Detailseite (Score-Verlaufsgrafik, Audits,
+Bestellungen, Kontakthistorie-Notizen); **manuelle Hotel-Anlage** (Stufe 0b: Hotel +
+Ansprechpartner + AGB-Vermerk erfassen, Audit starten, Ergebnis-Mail optional); Wettbewerber-
+Override; Audit-Runs (Status, Kosten, Logs, Re-Run); Bestellungen/Abos (Stripe-Links);
+Synthese-Warteschlange (Operator-Modus); Reports (Vorschau, Regenerieren); Kosten-Dashboard;
+Settings; Benchmark-Ansicht.
+
+**Admin-Benachrichtigungen (Mail mit Admin-Direktlink):** neuer Kauf, neues/gekündigtes Abo,
+Synthese-Aufgabe wartet, Budget-/Anomalie-Alerts (03 §3). Konfigurierbar in settings.
+
+## 7b. Kundenportal (F-I)
+
+Eigener Bereich `/portal`, Magic-Link-Auth über `portal_users` (nur aktive Abos; Zugang erlischt
+mit Abo-Ende, Report-Archiv-Links bleiben gültig). Dashboard: Score-Verlauf (Recharts, pro
+Plattform filterbar), Faktenfehler behoben/neu, AI-Traffic (F-H), Wettbewerbs-Ranking anonym/
+namentlich je nach gekaufter Stufe, Maßnahmen-Checkliste (Status abhakbar → fließt in
+Monats-Report), Report-Archiv. Strikte Mandantentrennung: Queries immer über hotel_id des
+eingeloggten portal_users (Drizzle-Helper erzwingt Scope).
 
 ## 8. Konfiguration & Secrets
 

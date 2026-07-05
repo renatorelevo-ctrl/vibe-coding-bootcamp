@@ -45,6 +45,28 @@ Stufe 5  BERATUNG       Premium — persönliche Umsetzung mit Experten (Termin-
 - Double-Opt-in-Mail ("Bestätige, dann startet deine Analyse"). Erst nach Bestätigung startet der
   Mini-Audit. Das ist zugleich Lead-Capture und Missbrauchsschutz.
 - Der Audit läuft asynchron (2–10 Min). Ergebnis-Mail mit Link zur Teaser-Seite.
+- **Datensparsam by design:** Auf dieser Stufe wird ausschließlich die E-Mail verlangt — jedes
+  weitere Pflichtfeld kostet Conversion. Vollständige Ansprechpartner-Daten werden erst beim
+  Kauf Pflicht (→ §3.1).
+
+### Stufe 0b — Zweiter Eingangsweg: über den Betreiber
+
+Hotels, die den Betreiber direkt kontaktieren (Telefon, Messe, Empfehlung), werden im
+Admin manuell angelegt: Hotel + Ansprechpartner erfassen → Audit per Klick starten →
+wahlweise Ergebnis-Link automatisch per Mail versenden oder manuell weitergeben.
+Identische Pipeline, identische Reports — nur der Eingang unterscheidet sich
+(`hotels.intake = self_service | manual`).
+
+### §3.1 Ansprechpartner & AGB (Pflichtdaten bei Kauf/Abo)
+
+- Pro Hotel genau ein **Pflicht-Ansprechpartner**: Name, Position, E-Mail, Telefonnummer.
+  Erhoben beim Checkout (Stufen 2–4) bzw. bei manueller Anlage durch den Betreiber; beim
+  Gratis-Teaser bewusst nicht (nur E-Mail).
+- **AGB-Zustimmung:** nicht vorangekreuzte Checkbox bei Checkout und Portal-Registrierung;
+  protokolliert mit Zeitstempel, AGB-Version und Konto — revisionssicherer Nachweis.
+- **Betreiber-Benachrichtigungen:** sofortige E-Mail an den Admin bei neuem Kauf, neuem/
+  gekündigtem Abo und jeder wartenden Synthese-Aufgabe (Operator-Modus), jeweils mit
+  Direktlink in den Admin.
 
 ### Stufe 1 — Teaser (die Neugier-Lücke)
 
@@ -151,6 +173,15 @@ Abo-Status, anstehenden Reports, Umsatz.
 Leads/Hotels/Audits/Bestellungen einsehen, Wettbewerber überschreiben, Audits manuell starten,
 Reports freigeben/regenerieren, Kostenübersicht (API-Ausgaben pro Audit/Monat), Preise & Feature-
 Flags konfigurieren.
+
+### F-I — Kundenportal (für Abo-Kunden)
+
+Abo-Kunden erhalten einen Login (Magic-Link, passwortlos) zu einem **grafischen Dashboard**:
+Score-Verlauf (Kurve, pro Plattform filterbar), behobene vs. neue Faktenfehler,
+AI-Traffic-Zahlen (F-H), Wettbewerbs-Ranking-Verlauf, Maßnahmen-Status (abhakbar) und
+Report-Archiv (alle Monats-PDFs). Einmal-Käufer (Stufe 2/3) brauchen kein Konto — sie behalten
+ihren tokenisierten Report-Link. Das Portal ist ein aktives Verkaufsargument fürs Abo und die
+Basis für spätere Self-Service-Erweiterung (PRD §8 bleibt: kein Self-Service-Audit in v1).
 
 ### F-H — AI-Traffic-Tracking
 
