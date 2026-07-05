@@ -67,7 +67,7 @@ Akzeptanzkriterien, reviewt Diffs.
 | P3.5 | Report-Prosa via SYNTHESIZER (Executive Summary, Empfehlungen) mit Zahlen-Interpolation aus Code | 04 §10 | Golden-Test: keine erfundenen Zahlen (Regex-Assertion gegen Input-Zahlenmenge) |
 | P3.6 | Admin v1: Leads/Hotels/Runs/Orders-Listen, Wettbewerber-Override-UI, Run-Detail mit Kosten & Logs, Re-Run-Button, Kosten-Dashboard | 02 §7 | E2E: Override → Folgelauf nutzt manuelle Liste |
 | P3.7 | Beratungs-Stufe: "Umsetzung mit Experten"-Sektion + Kontakt-/Terminlink auf Teaser & Report | 01 §3 | vorhanden, DSGVO-konformes Formular |
-| P3.8 | Ansprechpartner + AGB: `contacts`-Erfassung im Checkout (Name, Position, E-Mail, Telefon als Pflicht), AGB-Checkbox mit versionierter Protokollierung (`terms_acceptances`) | 01 §3.1 | Test: Kauf ohne Kontakt/AGB unmöglich; Nachweis abfragbar |
+| P3.8 | Ansprechpartner + Checkout-Checkboxen: `contacts`-Erfassung (Name, Position, E-Mail, Telefon Pflicht), Firmenname + Unternehmer-Bestätigung (B2B-only), AGB-Checkbox, separate Marketing-Einwilligung (optional) — alles versioniert protokolliert (`terms_acceptances`) | 01 §3.1, 03 §6 | Test: Kauf ohne Kontakt/AGB/Unternehmer-Bestätigung unmöglich; Marketing-Consent optional |
 | P3.9 | Manuelle Hotel-Anlage (Stufe 0b): Admin-Formular Hotel+Ansprechpartner, Audit-Start per Klick, Ergebnis-Mail optional, `intake=manual` | 01 §3 | E2E: manuell angelegtes Hotel durchläuft identische Pipeline |
 | P3.10 | Admin-Dashboard (Startseite): KPI-Kacheln, Aktivitäts-Feed, Handlungsliste; Admin-Benachrichtigungs-Mails (Kauf, Abo, Synthese wartet) | 02 §7 | Dashboard aus Seed-Daten; Mail-Trigger getestet |
 | P3.11 | Erklär-Inhalte: `content/explainers/` (Metriken, Hebel H1–H6, Befund-Typen; DE/EN, short/long/faq), Wissensbasis-Seite im Admin, Info-Icons in Report + Admin, Drill-Down Score→Prompts→Original-Antwort | 02 §7c, 01 §5 | Jede Report-Metrik hat Erklärtext; Drill-Down E2E |
@@ -94,6 +94,8 @@ Akzeptanzkriterien, reviewt Diffs.
 | P5.5 | AI-Traffic-Dashboard im Abo-Report (Referrer-Klassen, Verlauf) + Grenzen-Hinweis | 01 F-H |
 | P5.6 | Kundenportal (F-I): `portal_users` + Magic-Link, Dashboard (Score-Verlauf X,X/10, Fehler-Bilanz, AI-Traffic, Maßnahmen-Checkliste, Report-Archiv), Wettbewerber-Verwaltung + Lücken-Analyse, Sprach-/Gästemix-Einstellungen, Mandanten-Scope-Helper, Zugang an Abo-Status gekoppelt | 02 §7b, 04 §5.4 |
 | P5.7 | Gästemix-Sprachberatung: Abgleich Gästemix ↔ Sichtbarkeit pro Sprache → Empfehlungs-Baustein in Playbook + Monats-Report (Sprachen-Upsell) | 01 §6 |
+| P5.8 | Abo-Varianten: Flex (monatlich kündbar) + Jahr (12 Mon. Erstlaufzeit via Stripe Subscription Schedule, inkl. Report+Optimierung, optional Jahres-Vorauszahlung), Anrechnungs-Logik Report→Jahres-Abo (90 Tage) | 01 §3 |
+| P5.9 | Win-back-Motor (Stufe 6): Cron 6 Monate nach Einmal-Kauf → Mini-Re-Audit → personalisierte Vergleichs-Mail (nur mit Marketing-Einwilligung; Abmeldelink); Erfolgs-Tracking (Conversion) | 01 §3 Stufe 6, 03 §6 |
 
 ## Phase P6 — Analyse-Suite
 

@@ -114,6 +114,13 @@ Regeln für alle EXECUTOR/SYNTHESIZER-Aufrufe:
   aggregiert/anonymisiert.
 - **AI-Antworten als Zitat:** Faktenfehler-Zitate im Report kennzeichnen als "Ausgabe des
   jeweiligen AI-Systems am Messdatum", inkl. Methodik-Disclaimer (Consumer-App kann abweichen).
+- **B2B-only & Vertragslaufzeit:** AGB beschränken das Angebot ausdrücklich auf Unternehmer
+  (§ 14 BGB) — damit ist die 12-Monats-Erstlaufzeit des Jahres-Abos zulässig und
+  Verbraucher-Widerrufs-/Kündigungsregeln greifen nicht. Checkout enthält eine
+  Unternehmer-Bestätigung (Checkbox + Firmenname als Pflichtfeld). Anwaltlich mitprüfen.
+- **Win-back-Mails (Stufe 6):** werbliche E-Mails an Bestandskunden erfordern eine separate,
+  nicht vorangekreuzte Marketing-Einwilligung beim Checkout (protokolliert wie AGB);
+  ohne Einwilligung findet weder Re-Audit noch Mail statt. Abmeldelink in jeder Mail.
 
 ## 7. Tracking-Snippet — Privacy by Design
 

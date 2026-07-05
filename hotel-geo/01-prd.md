@@ -85,14 +85,36 @@ ausgeschlossen (nicht nur ausgeblendet). Darunter die Kaufstufen als Preistabell
 
 ### Stufen 2–5 — Bezahlangebote
 
-| Stufe | Produkt | Inhalt | Preis (Platzhalter, final vom Betreiber) |
-|---|---|---|---|
-| 2 | **Vollreport** | Voll-Audit (alle 4 Plattformen, alle konfigurierten Sprachen), Wettbewerber mit Namen + Scores, Faktenfehler im Wortlaut mit Quelle (welche AI, welche Aussage), Score pro Plattform/Sprache, PDF + Web | 149–299 € einmalig |
-| 3 | **Optimierungspaket** | Alles aus Stufe 2 + GEO-Rewrites der Website-Texte (Diff-Ansicht), generierter FAQ-Block, Schema.org-JSON-LD, priorisierte Maßnahmenliste ("Quick Wins zuerst"), übergabefertig für die Webagentur | 399–699 € einmalig (inkl. Stufe 2) |
-| 4 | **Monitoring-Abo** | Monatlicher Re-Audit (gleiche Prompt-Batterie → vergleichbare Scores), Trend-Report, Alerts bei neuen Faktenfehlern/Score-Einbrüchen, AI-Traffic-Tracking-Snippet + Dashboard | 99–199 €/Monat |
-| 5 | **Beratung** | "Persönliche Umsetzung mit Experten": Kontaktformular/Termin-Link, individuelles Angebot | individuell |
+| Angebot | Inhalt | Preis (Platzhalter, im Admin konfigurierbar) |
+|---|---|---|
+| **Vollreport** (Stufe 2) | Voll-Audit (alle 4 Plattformen, alle konfigurierten Sprachen), Wettbewerber mit Namen + Scores + Lücken-Analyse, Faktenfehler im Wortlaut mit Quelle, PDF + Web | 299 € einmalig |
+| **Optimierungspaket** (Stufe 3) | Alles aus Stufe 2 + GEO-Rewrites (Diff-Ansicht), FAQ-Block, Schema.org-JSON-LD, Maßnahmen-Playbook H1–H6 | 599 € einmalig (inkl. Stufe 2) |
+| **Abo Flex** (Stufe 4a) | Monitoring: monatlicher Re-Audit, Trend, Alerts, Portal, AI-Traffic-Tracking. Report/Optimierung NICHT inkl. | 199 €/Monat, monatlich kündbar |
+| **Abo Jahr** ⭐ (Stufe 4b, Empfehlung im UI) | **Vollreport + Optimierungspaket inklusive** + komplettes Monitoring | 149 €/Monat, 12 Monate Erstlaufzeit, danach monatlich kündbar; optional Jahreszahlung mit Rabatt (~1.590 €) |
+| **Beratung** (Stufe 5) | "Persönliche Umsetzung mit Experten": Kontakt/Termin, individuelles Angebot | individuell |
 
-Upgrade-Pfade: 2→3 (Differenzpreis), 2/3→4 (Abo-CTA in jedem Report), überall →5.
+**Preisarchitektur-Logik (Anti-Kannibalisierung):**
+- Report+Optimierung (599 € Einzelwert) gibt es **nur** gegen Jahresbindung inklusive —
+  der "Abo abschließen, Report abgreifen, nach 1 Monat kündigen"-Exploit ist damit strukturell
+  ausgeschlossen. Flex existiert bewusst als unattraktiver Vergleichspunkt (Decoy) und fängt
+  Bindungs-Verweigerer ein. Anker: Jahres-Abo 1.788 € vs. Einzelkauf + 12×Flex ≈ 2.987 €.
+- **Anrechnung statt Doppelzahlung:** Vollreport-Käufer, die binnen 90 Tagen ins Jahres-Abo
+  wechseln, bekommen den Reportpreis voll angerechnet → der Report wird Abo-Türöffner.
+- **B2B-only:** AGB beschränken das Angebot explizit auf Unternehmer → 12-Monats-Erstlaufzeit
+  zulässig, Verbraucher-Kündigungs-/Widerrufsregeln greifen nicht (→ 03 §6).
+- **Vergänglichkeit kommunizieren:** Jeder Einmal-Report trägt prominent Messdatum + Hinweis,
+  dass AI-Antworten sich laufend ändern und Maßnahmen erst nach 4–8 Wochen wirken —
+  Nachmessung (= Abo) ist der einzige Wirkungsnachweis.
+
+Upgrade-Pfade: 2→3 (Differenzpreis), 2/3→4b (Anrechnung), überall →5.
+
+### Stufe 6 — Wiederkehr-Motor (Win-back, automatisch)
+
+6 Monate nach einem Einmal-Kauf (Stufe 2/3) läuft automatisch ein Mini-Re-Audit (Kosten:
+Cents) und erzeugt eine personalisierte Win-back-Mail: "Ihr Score im Januar: 6,5 — heute: 5,8.
+2 behobene Faktenfehler sind zurückgekehrt, [anonymisiert: ein Wettbewerber] hat Sie überholt."
+CTA: Jahres-Abo. Voraussetzung: separate Marketing-Einwilligung beim Checkout (Checkbox, nicht
+vorangekreuzt). Ohne Einwilligung: kein Re-Audit, keine Mail.
 
 ## 4. Module & Features (Vollvision)
 

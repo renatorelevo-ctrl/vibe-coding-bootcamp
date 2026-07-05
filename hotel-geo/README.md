@@ -50,6 +50,8 @@ persönliche Beratung.
 | 22 | UI-Sprache gepinnt | DE/EN-Wahl beim Eintrag (Browser-vorbelegt), pinnt Mails/Teaser/Reports/Portal; änderbar, wechselt nie automatisch. Audit-Sprachen getrennt davon |
 | 23 | Gästemix-Beratung | Bezahlversion fragt Gäste-Herkunft ab → Playbook empfiehlt Sprachen/Übersetzungen datenbasiert ("22 % US-Gäste, EN-Sichtbarkeit nur 3,1/10") — Abo-Upsell |
 | 24 | Score-Skala & Kunden-Wettbewerber | Kundenseitig Booking-Stil **X,X / 10** (intern 0–100); Bezahlkunden wählen eigene Konkurrenten (max 5, Neuberechnung ohne neue Abfragen) + Lücken-Analyse "Aufholpunkte" pro Wettbewerber |
+| 25 | Preisarchitektur | Report 299 € / Optimierung 599 € einmalig; **Abo Flex** 199 €/Mon. (kündbar, nichts inkl.) als Decoy; **Abo Jahr** 149 €/Mon. mit 12-Mon.-Erstlaufzeit inkl. Report+Optimierung (Exploit strukturell ausgeschlossen); 90-Tage-Anrechnung Report→Jahres-Abo; B2B-only (Unternehmer-Bestätigung im Checkout) |
+| 26 | Wiederkehr-Motor | Stufe 6: 6 Monate nach Einmal-Kauf automatischer Mini-Re-Audit + personalisierte Win-back-Mail ("Score 6,5 → 5,8") — nur mit separater Marketing-Einwilligung |
 
 ## Status
 
