@@ -21,6 +21,7 @@ persönliche Beratung.
 | [04-prompt-spec.md](04-prompt-spec.md) | Prompt-Batterie, Auswertungs-Prompts, Scoring-Methodik, Rewriter-Prompts |
 | [05-implementation-plan.md](05-implementation-plan.md) | Phasenplan P0–P7, Tasks für Executor-Modelle, **MVP-Schnitt** |
 | [06-visibility-playbook.md](06-visibility-playbook.md) | Die 6 Sichtbarkeits-Hebel (H1–H6): Technik, Content, Google Business, Reviews, Digital-PR, Entität |
+| [07-ota-score-module.md](07-ota-score-module.md) | Produkt 2 (nach MVP): OTA-Score — Booking-/Google-Profil-Audit auf derselben Plattform, Phase P8 |
 
 ## Entscheidungs-Log (aus der Produktdiskussion)
 
@@ -61,6 +62,7 @@ persönliche Beratung.
 | 33 | Sprach-Slots frei belegbar | Free: 2 Slots automatisch = **Landessprache des Hotels + EN** (international-tauglich). Ab Kauf: **alle 5 Slots frei belegbar**, auch Deutsch austauschbar |
 | 34 | Stack-Abgleich | Slack-Webhook für Admin-Benachrichtigungen (Betreiber arbeitet in Slack). Neu anzulegen: OpenAI-/Perplexity-/Anthropic-API-Konten, Stripe, Brevo, Turnstile, Domain. Airtable/Drive/Power Platform bewusst NICHT fürs Produkt (Datensparsamkeit / kein SaaS-Fit) |
 | 35 | Hosting-Entscheidung | **Velocity-Setup** (ersetzt All-Hetzner-Default aus Nr. 29/34): App auf Vercel fra1, **DB/Auth/Storage auf Supabase Frankfurt** (Magic-Link fertig, managed Backups — Betreiber-Alltagswerkzeuge), Worker auf der Hetzner-Box. EU-Routing-Upgrade-Pfad für LLMs: Azure OpenAI (EU) + AWS Bedrock (eu-central-1) — Betreiber hat beide Konten, Adapter machen es zum Konfigwechsel |
+| 36 | Produkt 2: OTA-Score | Zweites Audit-Modul auf derselben Funnel-Maschine (statt Mystery-Inquiry u. a.): Booking-/Google-Profil-Score (X,X/10) vs. dieselben 5 Wettbewerber, Deliverables copy-paste-fertig, im Abo inklusive + Einmalprodukt "OTA-Paket". Doppelwirkung: OTA-Optimierung hebt auch den AI-Sichtbarkeits-Score (H3/H4/H6). Bau als Phase P8 nach MVP (→ 07) |
 
 ## Status
 
