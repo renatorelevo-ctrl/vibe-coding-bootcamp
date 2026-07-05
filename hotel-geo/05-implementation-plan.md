@@ -94,7 +94,7 @@ Akzeptanzkriterien, reviewt Diffs.
 | P5.5 | AI-Traffic-Dashboard im Abo-Report (Referrer-Klassen, Verlauf) + Grenzen-Hinweis | 01 F-H |
 | P5.6 | Kundenportal (F-I): `portal_users` + Magic-Link, Dashboard (Score-Verlauf X,X/10, Fehler-Bilanz, AI-Traffic, Maßnahmen-Checkliste, Report-Archiv), Wettbewerber-Verwaltung + Lücken-Analyse, Sprach-/Gästemix-Einstellungen, Mandanten-Scope-Helper, Zugang an Abo-Status gekoppelt | 02 §7b, 04 §5.4 |
 | P5.7 | Gästemix-Sprachberatung: Abgleich Gästemix ↔ Sichtbarkeit pro Sprache → Empfehlungs-Baustein in Playbook + Monats-Report (Sprachen-Upsell) | 01 §6 |
-| P5.8 | Abo-Varianten: Flex (monatlich kündbar) + Jahr (12 Mon. Erstlaufzeit via Stripe Subscription Schedule, inkl. Report+Optimierung, optional Jahres-Vorauszahlung), Anrechnungs-Logik Report→Jahres-Abo (90 Tage) | 01 §3 |
+| P5.8 | Das Abo: 12 Mon. Mindestlaufzeit + 3-Monats-Kündigungsfrist (Stripe Subscription Schedule; Kündigungs-Logik mit Frist-Berechnung), Deliverable-Auslösung zu Beginn (Voll-Audit + Optimierungspaket), fortlaufende Maßnahmen im Monats-Report, Anrechnungs-Logik Einmal-Kauf→Abo (90 Tage), optional Jahres-Vorauszahlung | 01 §3 |
 | P5.9 | Win-back-Motor (Stufe 6): Cron 6 Monate nach Einmal-Kauf → Mini-Re-Audit → personalisierte Vergleichs-Mail (nur mit Marketing-Einwilligung; Abmeldelink); Erfolgs-Tracking (Conversion) | 01 §3 Stufe 6, 03 §6 |
 
 ## Phase P6 — Analyse-Suite

@@ -89,24 +89,24 @@ ausgeschlossen (nicht nur ausgeblendet). Darunter die Kaufstufen als Preistabell
 |---|---|---|
 | **Vollreport** (Stufe 2) | Voll-Audit (alle 4 Plattformen, alle konfigurierten Sprachen), Wettbewerber mit Namen + Scores + Lücken-Analyse, Faktenfehler im Wortlaut mit Quelle, PDF + Web | 299 € einmalig |
 | **Optimierungspaket** (Stufe 3) | Alles aus Stufe 2 + GEO-Rewrites (Diff-Ansicht), FAQ-Block, Schema.org-JSON-LD, Maßnahmen-Playbook H1–H6 | 599 € einmalig (inkl. Stufe 2) |
-| **Abo Flex** (Stufe 4a) | Monitoring: monatlicher Re-Audit, Trend, Alerts, Portal, AI-Traffic-Tracking. Report/Optimierung NICHT inkl. | 199 €/Monat, monatlich kündbar |
-| **Abo Jahr** ⭐ (Stufe 4b, Empfehlung im UI) | **Vollreport + Optimierungspaket inklusive** + komplettes Monitoring | 149 €/Monat, 12 Monate Erstlaufzeit, danach monatlich kündbar; optional Jahreszahlung mit Rabatt (~1.590 €) |
+| **Das Abo** (Stufe 4, einziges Abo) | **Vollreport + Optimierungspaket sofort zu Beginn inklusive**, dann laufendes Monitoring (monatlicher Re-Audit, Trend, Alerts, Portal, AI-Traffic-Tracking) **+ fortlaufende Optimierung**: fällt im Monats-Audit etwas auf (neuer Faktenfehler, neue Lücke, neue Quelle), liefert der Monats-Report direkt die passende Maßnahme/den Textentwurf mit | 149 €/Monat; **12 Monate Mindestlaufzeit, danach kündbar mit 3 Monaten Frist zum Monatsende**; optional Jahres-Vorauszahlung mit Rabatt (~1.590 €) |
 | **Beratung** (Stufe 5) | "Persönliche Umsetzung mit Experten": Kontakt/Termin, individuelles Angebot | individuell |
 
-**Preisarchitektur-Logik (Anti-Kannibalisierung):**
-- Report+Optimierung (599 € Einzelwert) gibt es **nur** gegen Jahresbindung inklusive —
-  der "Abo abschließen, Report abgreifen, nach 1 Monat kündigen"-Exploit ist damit strukturell
-  ausgeschlossen. Flex existiert bewusst als unattraktiver Vergleichspunkt (Decoy) und fängt
-  Bindungs-Verweigerer ein. Anker: Jahres-Abo 1.788 € vs. Einzelkauf + 12×Flex ≈ 2.987 €.
-- **Anrechnung statt Doppelzahlung:** Vollreport-Käufer, die binnen 90 Tagen ins Jahres-Abo
-  wechseln, bekommen den Reportpreis voll angerechnet → der Report wird Abo-Türöffner.
-- **B2B-only:** AGB beschränken das Angebot explizit auf Unternehmer → 12-Monats-Erstlaufzeit
-  zulässig, Verbraucher-Kündigungs-/Widerrufsregeln greifen nicht (→ 03 §6).
+**Preisarchitektur-Logik:**
+- **Ein einziges Abo — bewusst keine Varianten:** Eine frühere Flex-Variante (monatlich
+  kündbar, ohne Deliverables) wurde verworfen: zu hohes Missverständnis-/Support-Risiko
+  ("teurer und trotzdem kein Report?"). Ein Abo, ein Versprechen: "Wir kümmern uns dauerhaft."
+- **Kein Kündigungs-Exploit:** Die inkludierten Deliverables sind durch die 12-Monats-
+  Mindestlaufzeit gedeckt; "abschließen, Report abgreifen, kündigen" ist unmöglich.
+- **Anrechnung statt Doppelzahlung:** Einmal-Käufer (Stufe 2/3), die binnen 90 Tagen ins Abo
+  wechseln, bekommen den Kaufpreis voll angerechnet → Einmal-Produkte werden Abo-Türöffner.
+- **B2B-only:** AGB beschränken das Angebot explizit auf Unternehmer → Mindestlaufzeit und
+  3-Monats-Kündigungsfrist zulässig, Verbraucher-Regeln greifen nicht (→ 03 §6).
 - **Vergänglichkeit kommunizieren:** Jeder Einmal-Report trägt prominent Messdatum + Hinweis,
   dass AI-Antworten sich laufend ändern und Maßnahmen erst nach 4–8 Wochen wirken —
   Nachmessung (= Abo) ist der einzige Wirkungsnachweis.
 
-Upgrade-Pfade: 2→3 (Differenzpreis), 2/3→4b (Anrechnung), überall →5.
+Upgrade-Pfade: 2→3 (Differenzpreis), 2/3→4 (Anrechnung), überall →5.
 
 ### Stufe 6 — Wiederkehr-Motor (Win-back, automatisch)
 
