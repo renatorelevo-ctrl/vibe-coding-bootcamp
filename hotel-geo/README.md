@@ -20,6 +20,7 @@ persönliche Beratung.
 | [03-security-privacy.md](03-security-privacy.md) | DSGVO, EU-Hosting, Prompt-Injection-Abwehr, Missbrauchsschutz, Rechtliches |
 | [04-prompt-spec.md](04-prompt-spec.md) | Prompt-Batterie, Auswertungs-Prompts, Scoring-Methodik, Rewriter-Prompts |
 | [05-implementation-plan.md](05-implementation-plan.md) | Phasenplan P0–P7, Tasks für Executor-Modelle, **MVP-Schnitt** |
+| [06-visibility-playbook.md](06-visibility-playbook.md) | Die 6 Sichtbarkeits-Hebel (H1–H6): Technik, Content, Google Business, Reviews, Digital-PR, Entität |
 
 ## Entscheidungs-Log (aus der Produktdiskussion)
 
@@ -38,6 +39,8 @@ persönliche Beratung.
 | 11 | Verwaltung | Eigene Kundenverwaltung im Tool (Admin-Backend), keine externe CRM-Pflicht |
 | 12 | Planungsansatz | Kompletter End-to-End-Plan zuerst; MVP-Schnitt am Ende (siehe 05, Abschnitt "MVP-Schnitt") |
 | 13 | Hosting/Datenschutz | EU-Datenhaltung, DSGVO-konform, keine Gästedaten im System |
+| 14 | Sichtbarkeits-Hebel | Optimierung = Playbook über 6 Hebel (Technik, Content, Google Business, Reviews, Digital-PR, Entität), nicht nur Website (→ 06) |
+| 15 | Synthese-Kosten | Hybrid: Massenarbeit über Billig-APIs (Cents); hochwertige Synthesen (Optimierungspaket) im **Operator-Modus** via Claude Code + Abo des Betreibers (human-in-the-loop, 0 € API), pro Schritt auf `api` umschaltbar |
 
 ## Status
 

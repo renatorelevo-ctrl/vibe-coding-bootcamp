@@ -175,8 +175,9 @@ häufiger empfohlen als Sie."
 - **Schema.org:** `Hotel`-JSON-LD-Template deterministisch aus Strukturdaten befüllt
   (Name, Adresse, Sterne, Amenities, Geo, Preisspanne); LLM nur für Amenity-Mapping auf
   Schema-Vokabular. Validierung gegen JSON-LD-Schema im Code.
-- **Maßnahmenliste:** aus Audit-Ergebnissen priorisierte Aktionen (Impact × Aufwand), Kategorien:
-  Website-Text, strukturierte Daten, Profile (Google/Booking), Quellen-Präsenz (aus F-A), llms.txt.
+- **Maßnahmen-Playbook:** aus Audit-Ergebnissen priorisierte Aktionen (Impact × Aufwand),
+  Kategorien = Hebel H1–H6 (→ 06-visibility-playbook.md), jede Maßnahme mit Plattform-Wirkung,
+  Aufwand (S/M/L) und Umsetzer (Hotel / Webagentur / Beratung).
 
 ## 8. Monitoring-Diff & Alerts
 

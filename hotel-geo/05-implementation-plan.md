@@ -42,6 +42,7 @@ Akzeptanzkriterien, reviewt Diffs.
 | P1.8 | `ScoringService`: Formeln 04 §5 deterministisch + `methodology_version` | 04 §5 | Property-Tests (Grenzen 0/100, Gewichts-Summen) |
 | P1.9 | COMPETITORS-Step: Kandidaten-Aggregation, Kurations-Prompt, `competitor_links`, Wettbewerber-Läufe (Discovery-Batterie) | 04 §6 | Fixture-Flow: auto-Auswahl 3–5, Override bindend |
 | P1.10 | `AuditOrchestrator`: Job-Kette PREPARE→…→NOTIFY, Resume nach Crash, Statusmodell | 02 §5 | Integrationstest (alles gemockt): mini-Run end-to-end < deterministisch grün |
+| P1.11 | Technik-Check (H1): robots.txt-AI-Bots, llms.txt, Schema.org-Präsenz, SSR-Lesbarkeit, Latenz → `tech_checks`; deterministisch, keine LLM-Calls | 06 H1 | Fixture-Tests pro Check; Ergebnis im Vollreport-DTO |
 
 ## Phase P2 — Funnel & Teaser (erster sichtbarer Wert)
 
@@ -70,10 +71,11 @@ Akzeptanzkriterien, reviewt Diffs.
 
 | # | Task | Spec |
 |---|---|---|
-| P4.1 | `OptimizerService`: Rewrite-Prompt mit GEO-Prinzipien, Faktentreue-Regel (Platzhalter statt Erfindung) | 04 §7 |
+| P4.0 | Synthese-Warteschlange & Operator-Modus: `synthesis_tasks`, Export-Bundle-Generierung (JSON+Markdown), Admin-Ansicht "Wartende Synthesen", validierter Ergebnis-Import, Modus-Schalter pro Schritt in settings; Claude-Code-Skill (`skills/optimizer-bundle/`) mit Anleitung | 02 §2 |
+| P4.1 | `OptimizerService`: Rewrite-Prompt mit GEO-Prinzipien, Faktentreue-Regel (Platzhalter statt Erfindung); läuft in `api`- UND `operator`-Modus (gleiche Prompts im Skill) | 04 §7 |
 | P4.2 | Diff-Ansicht Vorher/Nachher + Freigabe-Status pro Item | 01 §4 M3 |
 | P4.3 | FAQ-Generator + Schema.org-JSON-LD (deterministisch befüllt, validiert) | 04 §7.2 |
-| P4.4 | Priorisierte Maßnahmenliste (Impact×Aufwand) inkl. llms.txt-/Profil-Empfehlungen | 04 §7.2 |
+| P4.4 | Maßnahmen-Playbook über alle 6 Hebel (H1–H6): Priorisierung, Plattform-Wirkung, Umsetzer-Zuordnung; speist sich aus tech_checks, Fakten-Check, F-A/F-B (sofern vorhanden) | 06 |
 | P4.5 | Artefakt-Downloads (Texte, JSON-LD) + Optimizer-PDF; Upgrade-Pfad 2→3 (Differenzpreis in Stripe) | 01 §3 |
 
 ## Phase P5 — Abo, Monitoring, Tracking (Stufe 4)
@@ -129,6 +131,7 @@ Stufen 3/4 bereits als "demnächst" mit Interessen-Button (validiert Nachfrage, 
 |---|---|
 | Hosting/DB/Mail | 30–60 € |
 | LLM-APIs: 200 Gratis-Leads × ~0,10 € + 20 Voll-Audits × ~3–5 € | 80–120 € |
+| Optimizer-Synthesen im Operator-Modus (Claude-Code-Abo des Betreibers) | 0 € API |
 | Abos (10 Kunden × Monats-Run ~2 €) | ~20 € |
 | Stripe | % vom Umsatz |
 

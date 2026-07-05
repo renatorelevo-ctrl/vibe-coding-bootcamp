@@ -46,6 +46,20 @@
   Wettbewerber-Kuration.
 - Konkrete Modell-IDs sind Konfiguration, nicht Code — Modelle altern schneller als das Produkt.
 
+**Synthese-Ausführungsmodi (settings, pro Schritt konfigurierbar):**
+
+| Modus | Ablauf | Einsatz |
+|---|---|---|
+| `api` | vollautomatisch über LLM-API | Default für zeitkritische/unbeaufsichtigte Schritte: Batterie-Generierung, Teaser-/Vollreport-Prosa, Wettbewerber-Kuration |
+| `operator` | Job erzeugt ein **Export-Bundle** (JSON + Markdown mit allen Audit-Daten und der Aufgabenbeschreibung) und landet in der Admin-"Synthese-Warteschlange". Der Betreiber arbeitet das Bundle interaktiv mit Claude Code (eigenes Abo, vorbereiteter Projekt-Skill) ab und lädt die Ergebnisse hoch (validierter Import). | Default für hochwertige, niedrigvolumige Deliverables: Optimierungspaket (Rewrites, FAQ, Playbook), optional Monats-Report-Prosa |
+
+Begründung: Massenarbeit (EXECUTE/EXTRACT) **muss** API sein (parallel, unbeaufsichtigt, läuft
+über Billigmodelle für Cents). Die teuren Synthesen fallen nur bei bezahlten Bestellungen an —
+im `operator`-Modus kosten sie null API-Geld (Abo des Betreibers, interaktiv genutzt) und
+bekommen automatisch eine menschliche Qualitätskontrolle vor Kundenauslieferung. Ein Chat-Abo
+wird dabei **nie** als automatisiertes Server-Backend angebunden — der Operator-Modus ist
+explizit human-in-the-loop. Umschalten auf `api` jederzeit möglich (Skalierungspfad).
+
 ## 3. Systemkomponenten
 
 ```
@@ -102,6 +116,11 @@ tracking_events  id, hotel_id, day, referrer_class(chatgpt|perplexity|gemini|cla
                  other_ai), count            -- nur Tagesaggregate, keine Einzelbesucher
 benchmarks       segment_key(category×region×price_band), month, n_hotels, median_score,
                  p25, p75   -- nur wenn n_hotels ≥ 5
+tech_checks      id, hotel_id, audit_run_id, check_key(robots_ai_bots|llms_txt|schema_org|
+                 ssr_readable|latency), status(pass|fail|warn), details_json, checked_at
+synthesis_tasks  id, hotel_id, order_id?, kind(optimizer_bundle|monthly_prose|custom),
+                 status(queued|exported|imported|approved), bundle_json, result_json,
+                 exported_at, imported_at          -- Operator-Modus (§2)
 jobs             id, kind, payload_json, status(queued|running|done|failed), attempts,
                  run_after, locked_by, locked_at, last_error
 admin_users      id, email, role(owner|staff), auth via Magic-Link
@@ -127,6 +146,8 @@ Job-Kette pro Audit-Run; jeder Schritt idempotent, Zustand in DB:
 ```
 1. PREPARE      Hotel validieren; truth_corpus crawlen/auffrischen (Website: Start- +
                 Zimmer-/Preis-/Kontakt-Seiten, max N Seiten; Booking-Profil falls URL vorhanden)
+                + TECHCHECK: robots.txt (AI-Bots), llms.txt, Schema.org, SSR-Lesbarkeit,
+                Latenz — deterministisch, keine LLM-Kosten (→ 06-visibility-playbook.md H1)
 2. BATTERY      Batterie laden (aktive Version) oder generieren (SYNTHESIZER, → 04)
                 mini: Subset-Markierung der Batterie (stabiles Subset!)
 3. EXECUTE      Fan-out: prompts × provider × language → LlmProvider.query()
