@@ -59,7 +59,8 @@ persönliche Beratung.
 | 31 | Abo-Rhythmus & Sprachen | Erwartung: **ein Bericht/Monat** (kompletter Re-Audit, Score vs. Wettbewerber, Verbesserungspunkte); wöchentlicher Check läuft **still** (Mail nur bei kritischem Fund = Alert). Bis zu **5 Audit-Sprachen im Abopreis inklusive** (jederzeit im Portal aktivierbar, muttersprachliche Batterien, eigene Zeitreihe pro Sprache) |
 | 32 | Fixe 5er-Struktur | **Immer genau 5 Wettbewerber-Slots** (Free: vollautomatisch generiert + Auffüll-Regel, anonymisiert; ab Kauf: jeder Slot manuell umstellbar) und **5 Sprach-Slots** — kundenseitig wie im Backend identisch |
 | 33 | Sprach-Slots frei belegbar | Free: 2 Slots automatisch = **Landessprache des Hotels + EN** (international-tauglich). Ab Kauf: **alle 5 Slots frei belegbar**, auch Deutsch austauschbar |
-| 34 | Stack-Abgleich | Default-Hosting: **alles auf der Hetzner-Box** via Coolify (App+DB+Worker, Serverstandort Deutschland komplett; Vercel als Skalierungs-Option). Slack-Webhook für Admin-Benachrichtigungen (Betreiber arbeitet in Slack). Neu anzulegen: OpenAI-/Perplexity-/Anthropic-API-Konten, Stripe, Brevo, Turnstile, Domain. Airtable/Drive bewusst NICHT fürs Produkt (Datensparsamkeit) |
+| 34 | Stack-Abgleich | Slack-Webhook für Admin-Benachrichtigungen (Betreiber arbeitet in Slack). Neu anzulegen: OpenAI-/Perplexity-/Anthropic-API-Konten, Stripe, Brevo, Turnstile, Domain. Airtable/Drive/Power Platform bewusst NICHT fürs Produkt (Datensparsamkeit / kein SaaS-Fit) |
+| 35 | Hosting-Entscheidung | **Velocity-Setup** (ersetzt All-Hetzner-Default aus Nr. 29/34): App auf Vercel fra1, **DB/Auth/Storage auf Supabase Frankfurt** (Magic-Link fertig, managed Backups — Betreiber-Alltagswerkzeuge), Worker auf der Hetzner-Box. EU-Routing-Upgrade-Pfad für LLMs: Azure OpenAI (EU) + AWS Bedrock (eu-central-1) — Betreiber hat beide Konten, Adapter machen es zum Konfigwechsel |
 
 ## Status
 

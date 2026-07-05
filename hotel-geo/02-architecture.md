@@ -19,10 +19,10 @@
 |---|---|---|
 | Web-App | Next.js (App Router, TypeScript) | Funnel + Reports + Admin in einer App; Team-Know-how |
 | UI | Tailwind + shadcn/ui | schnell, konsistent |
-| DB | PostgreSQL auf der **vorhandenen Hetzner-Box des Betreibers** (Docker, z. B. via Coolify; Serverstandort Deutschland). Pflicht dabei: tägliche Off-Site-Backups (Hetzner Storage Box/S3), automatische Security-Updates, Firewall (DB-Port nur für App-IPs/VPN), dokumentierter Restore-Test. Fallback/Alternative: Managed Postgres (Neon/Supabase, Frankfurt), Migration ist nur ein Connection-String | relationale Audit-Daten, JSONB für LLM-Antworten; "Serverstandort Deutschland" als Vertriebsargument |
+| DB / Auth / Storage | **Supabase (Region Frankfurt)**: Postgres (relationale Audit-Daten, JSONB für LLM-Antworten), **Supabase Auth** für Magic-Link-Logins (Admin + Kundenportal — spart Eigenbau), Storage für Report-PDFs. Managed Backups + Point-in-Time-Recovery; AVV mit Supabase. Betreiber arbeitet täglich mit Supabase (Velocity-Entscheidung, Log 35). Daten liegen in Frankfurt → "Serverstandort Deutschland (Frankfurt)" bleibt Vertriebsargument | Fallback: Postgres auf der Hetzner-Box (Migration = Connection-String + Auth-Ersatz) |
 | ORM | Drizzle | typsicher, migrationsfreundlich, gut für kleinere Executor-Modelle |
 | Jobs | DB-gestützte Queue (`jobs`-Tabelle) + Worker; Trigger via Vercel Cron/QStash. Interface `JobRunner`, sodass später Inngest/Worker auf Hetzner einsetzbar | kein Vendor-Lock, einfach zu testen |
-| Hosting | **Default: alles auf der Hetzner-Box** via Coolify (App + DB + Worker; Deploys aus GitHub, automatisches SSL). Ein deutscher Server = stärkstes Datenschutz-Argument, minimale Kosten, ein AVV-Kreis. Vercel (fra1) bleibt dokumentierte Skalierungs-Option, Umzug ist bei Next.js trivial | Serverstandort Deutschland komplett |
+| Hosting | **Velocity-Setup (Log 35):** App auf **Vercel (fra1)**, DB/Auth/Storage auf **Supabase Frankfurt**, **Worker auf der Hetzner-Box** (Audits, Crawling, PDF-Rendering — langlaufende Jobs, die Serverless sprengen). Alles Werkzeuge, mit denen der Betreiber täglich arbeitet. Alternative "Souveränitäts-Setup" (alles auf der Box via Coolify) dokumentiert verworfen: mehr Eigenbetriebs-Risiko für Solo-Founder | alle Daten in Frankfurt/Deutschland |
 | Payment | Stripe (Checkout + Billing für Abo) | Standard, Rechnungen, EU-Steuern via Stripe Tax |
 | E-Mail | Brevo (EU-Anbieter) hinter `MailProvider`-Interface | DSGVO-freundlich, Double-Opt-in-Support |
 | PDF | Playwright rendert die Web-Report-Seite als PDF (Chromium headless) | ein Template für Web+PDF |
@@ -37,6 +37,12 @@
 | Gemini | Google Gemini API | Grounding with Google Search |
 | Perplexity | Perplexity API (sonar) | nativ |
 | Claude | Anthropic API | Web-Search-Tool |
+
+**EU-Routing-Upgrade-Pfad (Betreiber hat AWS- und Azure-Konten):** GPT-Modelle können später
+über **Azure OpenAI (EU-Region)** und Claude-Modelle über **AWS Bedrock (eu-central-1)** laufen —
+EU-Datenresidenz für die zwei wichtigsten Provider, dank Adapter-Design nur ein
+Konfigurationswechsel (Gemini analog via Vertex AI EU). Start: direkte APIs (schneller
+eingerichtet, No-Training-Klauseln im DPA dokumentiert, → 03 §2.3).
 
 **Modell-Ebenen (zentral in `config/models.ts`):**
 

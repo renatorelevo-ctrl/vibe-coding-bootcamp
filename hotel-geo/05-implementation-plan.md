@@ -22,11 +22,11 @@ Akzeptanzkriterien, reviewt Diffs.
 | # | Task | Akzeptanzkriterien |
 |---|---|---|
 | P0.1 | Repo-Setup: Next.js (App Router, TS), Tailwind, shadcn/ui, ESLint/Prettier, Vitest, Playwright, CI (Typecheck/Lint/Test) | `pnpm build` + CI grün; Seiten-Skeleton `/` rendert |
-| P0.2 | DB: Drizzle + Postgres (EU), Migrations-Setup, alle Tabellen aus 02 §4 als Schema | Migration läuft; Seed-Script legt Demo-Hotel an |
+| P0.2 | DB: Supabase-Projekt (Frankfurt) + Drizzle, Migrations-Setup, alle Tabellen aus 02 §4 als Schema | Migration läuft; Seed-Script legt Demo-Hotel an |
 | P0.3 | Job-Queue: `jobs`-Tabelle, `JobRunner`-Interface, Worker-Loop via `/api/jobs/tick` (Cron), Locking, Retry mit Backoff, Dead-Letter-Status | Unit-Tests: Nebenläufigkeit (kein Doppel-Lock), Retry, Idempotenz |
 | P0.4 | Adapter-Interfaces + Mocks: `LlmProvider` (query/extract/synthesize), `MailProvider`, `PaymentProvider`; Fixture-Lader | alle Services gegen Mocks kompilierbar |
 | P0.5 | `settings`-Service (typed get/set, Cache) + `CostGuard` (Run-Budget, Tagesbudget, Verbuchung in `llm_calls`) | Tests: Budget-Stopp greift vor dem Call; Tagesbudget kumuliert |
-| P0.6 | Admin-Auth: Magic-Link für `admin_users`, geschützter `/admin`-Bereich (leer) | E2E: Login-Flow mit Mock-Mail |
+| P0.6 | Admin-Auth: Supabase Auth (Magic-Link) für `admin_users`-Allowlist, geschützter `/admin`-Bereich (leer) | E2E: Login-Flow mit Mock-Mail |
 
 ## Phase P1 — Audit-Engine
 
@@ -93,7 +93,7 @@ Akzeptanzkriterien, reviewt Diffs.
 | P5.3b | Sprach-Aktivierung im Portal: bis zu 5 Audit-Sprachen wählbar, muttersprachliche Batterie-Generierung pro neuer Sprache (eigene Version/Zeitreihe), Sprach-Sektion im Monats-Report | 01 §3/§6, 04 §1.4 |
 | P5.4 | Tracking-Snippet (<2 KB, cookielos) + `/api/track` (Aggregat-Zähler, transientes Rate-Limit) + Einbau-Doku mit Datenschutz-Textbaustein | 03 §7 |
 | P5.5 | AI-Traffic-Dashboard im Abo-Report (Referrer-Klassen, Verlauf) + Grenzen-Hinweis | 01 F-H |
-| P5.6 | Kundenportal (F-I): `portal_users` + Magic-Link, Dashboard (Score-Verlauf X,X/10, Fehler-Bilanz, AI-Traffic, Maßnahmen-Checkliste, Report-Archiv), Wettbewerber-Verwaltung + Lücken-Analyse, Sprach-/Gästemix-Einstellungen, Mandanten-Scope-Helper, Zugang an Abo-Status gekoppelt | 02 §7b, 04 §5.4 |
+| P5.6 | Kundenportal (F-I): `portal_users` via Supabase Auth (Magic-Link), Dashboard (Score-Verlauf X,X/10, Fehler-Bilanz, AI-Traffic, Maßnahmen-Checkliste, Report-Archiv), Wettbewerber-Verwaltung + Lücken-Analyse, Sprach-/Gästemix-Einstellungen, Mandanten-Scope-Helper, Zugang an Abo-Status gekoppelt | 02 §7b, 04 §5.4 |
 | P5.7 | Gästemix-Sprachberatung: Abgleich Gästemix ↔ Sichtbarkeit pro Sprache → Empfehlungs-Baustein in Playbook + Monats-Report (Sprachen-Upsell) | 01 §6 |
 | P5.8 | Das Abo: 12 Mon. Mindestlaufzeit + 3-Monats-Kündigungsfrist (Stripe Subscription Schedule; Kündigungs-Logik mit Frist-Berechnung), Deliverable-Auslösung zu Beginn (Voll-Audit + Optimierungspaket), fortlaufende Maßnahmen im Monats-Report, Anrechnungs-Logik Einmal-Kauf→Abo (90 Tage), optional Jahres-Vorauszahlung | 01 §3 |
 | P5.9 | Win-back-Motor (Stufe 6): Cron 6 Monate nach Einmal-Kauf → Mini-Re-Audit → personalisierte Vergleichs-Mail (nur mit Marketing-Einwilligung; Abmeldelink); Erfolgs-Tracking (Conversion) | 01 §3 Stufe 6, 03 §6 |
