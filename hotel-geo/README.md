@@ -52,7 +52,8 @@ persönliche Beratung.
 | 24 | Score-Skala & Kunden-Wettbewerber | Kundenseitig Booking-Stil **X,X / 10** (intern 0–100); Bezahlkunden wählen eigene Konkurrenten (max 5, Neuberechnung ohne neue Abfragen) + Lücken-Analyse "Aufholpunkte" pro Wettbewerber |
 | 25 | Preisarchitektur | Report 299 € / Optimierung 599 € einmalig; **ein einziges Abo** 149 €/Mon.: 12 Mon. Mindestlaufzeit + danach 3 Mon. Kündigungsfrist, Report+Optimierung zu Beginn inklusive, fortlaufende Maßnahmen monatlich. Flex-Decoy-Variante bewusst verworfen (Missverständnis-Risiko). 90-Tage-Anrechnung Einmal-Kauf→Abo; B2B-only (Unternehmer-Bestätigung im Checkout) |
 | 26 | Wiederkehr-Motor | Stufe 6: 6 Monate nach Einmal-Kauf automatischer Mini-Re-Audit + personalisierte Win-back-Mail ("Score 6,5 → 5,8") — nur mit separater Marketing-Einwilligung |
-| 27 | Wettbewerbs-Check | Markt existiert (Otterly/Peec/Scrunch/Profound generisch; Hotelrank/hotelmarketer/RevPARGenius hotel-spezifisch) → Preis 149 €/Mon. validiert; Differenzierer: Faktenfehler-Check, fertige Deliverables, DACH, Gästemix-Sprachen, Beratung; Bindung offensiv begründen (→ 01 §1b) |
+| 27 | Wettbewerbs-Check | Markt existiert (Otterly/Peec/Scrunch/Profound generisch; Hotelrank/hotelmarketer/RevPARGenius hotel-spezifisch); Differenzierer: Faktenfehler-Check, fertige Deliverables, DACH, Gästemix-Sprachen, Beratung; Bindung offensiv begründen (→ 01 §1b) |
+| 28 | Preisniveau & Staffelung | 149 € verworfen (zu günstig): Preisanker ist das SEO-Budget der Hotels (Retainer 1.000–5.000 €/Mon. DE), nicht der Tool-Markt. Staffelung nach Hotelgröße: Abo 249/399/599 €/Mon. (S/M/L), Report 399/499/699 €, Optimierung 899/1.190/1.590 €; "Founding Member"-Rabatt für Pilot-Hotels statt niedriger Startpreise |
 
 ## Status
 

@@ -23,9 +23,14 @@ Scrunch (~$250–300/Mon.), Profound (ab $499/Mon., Enterprise). Hotel-spezifisc
 (ein Preis, alles inklusive, "no lock-in", Framing "weniger als eine Booking-Kommission/Monat"),
 RevPARGenius (kostenloser Scan als Lead-Magnet, 5 Engines).
 
+Preisreferenzen: SEO-Retainer DE 1.000–5.000 €/Mon. (kleine Mandate ab 800–1.500 €) —
+der eigentliche Vergleichsmaßstab, nicht die Tool-Abos.
+
 Ableitungen:
-- **Preis validiert:** 149 €/Mon. liegt im Marktkorridor. Framing übernehmen: "Eine einzige
-  Direktbuchung pro Monat zahlt das Abo" (OTA-Kommission ~15–18 %).
+- **Preisanker ist das SEO-Budget, nicht der Tool-Markt:** Wir sind Software + fertige
+  Deliverables + Beratungszugang — Preise nach Hotelgröße 249–599 €/Mon. (→ §3), immer noch
+  weit unter dem kleinsten SEO-Retainer. Doppel-Framing: "Bruchteil des SEO-Budgets" +
+  "eine einzige Direktbuchung pro Monat zahlt das Abo" (OTA-Kommission ~15–18 %).
 - **Gratis-Scan ist Branchenstandard** — der Teaser allein differenziert nicht.
 - **Unsere Differenzierer:** (1) Faktenfehler-Check als emotionaler Kaufauslöser (bewirbt kein
   Wettbewerber prominent), (2) fertige Deliverables statt nur Empfehlungen (Rewrites, FAQ,
@@ -104,12 +109,30 @@ ausgeschlossen (nicht nur ausgeblendet). Darunter die Kaufstufen als Preistabell
 
 ### Stufen 2–5 — Bezahlangebote
 
-| Angebot | Inhalt | Preis (Platzhalter, im Admin konfigurierbar) |
-|---|---|---|
-| **Vollreport** (Stufe 2) | Voll-Audit (alle 4 Plattformen, alle konfigurierten Sprachen), Wettbewerber mit Namen + Scores + Lücken-Analyse, Faktenfehler im Wortlaut mit Quelle, PDF + Web | 299 € einmalig |
-| **Optimierungspaket** (Stufe 3) | Alles aus Stufe 2 + GEO-Rewrites (Diff-Ansicht), FAQ-Block, Schema.org-JSON-LD, Maßnahmen-Playbook H1–H6 | 599 € einmalig (inkl. Stufe 2) |
-| **Das Abo** (Stufe 4, einziges Abo) | **Vollreport + Optimierungspaket sofort zu Beginn inklusive**, dann laufendes Monitoring (monatlicher Re-Audit, Trend, Alerts, Portal, AI-Traffic-Tracking) **+ fortlaufende Optimierung**: fällt im Monats-Audit etwas auf (neuer Faktenfehler, neue Lücke, neue Quelle), liefert der Monats-Report direkt die passende Maßnahme/den Textentwurf mit | 149 €/Monat; **12 Monate Mindestlaufzeit, danach kündbar mit 3 Monaten Frist zum Monatsende**; optional Jahres-Vorauszahlung mit Rabatt (~1.590 €) |
-| **Beratung** (Stufe 5) | "Persönliche Umsetzung mit Experten": Kontakt/Termin, individuelles Angebot | individuell |
+**Preisreferenz statt Tool-Vergleich:** Hotels zahlen für SEO-Retainer 1.000–5.000 €/Monat
+(DE; kleine Mandate ab 800–1.500 €) — für einen schrumpfenden Kanal. Wir positionieren uns als
+dessen Nachfolger, nicht als weiteres Tool-Abo: **"Ein Bruchteil Ihres SEO-Budgets — für den
+Kanal, der es ablöst."** Preise nach Hotelgröße gestaffelt (so kaufen Hotels ein: PMS/Channel-
+Manager werden pro Zimmer bepreist).
+
+| Angebot | S (≤25 Zi.) | M (26–75 Zi.) | L (76+ Zi./Gruppen) |
+|---|---|---|---|
+| **Vollreport** (Stufe 2, einmalig) | 399 € | 499 € | 699 € |
+| **Optimierungspaket** (Stufe 3, einmalig, inkl. Stufe 2) | 899 € | 1.190 € | 1.590 € |
+| **Das Abo** (Stufe 4, einziges Abo) | 249 €/Mon. | 399 €/Mon. | 599 €/Mon. bzw. individuell |
+| **Beratung** (Stufe 5) | individuell | individuell | individuell |
+
+(Alle Preise Platzhalter, im Admin pro Größenklasse konfigurierbar; Größenklasse wird bei der
+Hotel-Anlage erfasst bzw. aus dem Truth-Corpus geschätzt und beim Checkout bestätigt.)
+
+**Das Abo enthält:** Vollreport + Optimierungspaket sofort zu Beginn, dann laufendes Monitoring
+(monatlicher Re-Audit, Trend, Alerts, Portal, AI-Traffic-Tracking) **+ fortlaufende
+Optimierung**: fällt im Monats-Audit etwas auf (neuer Faktenfehler, neue Lücke, neue Quelle),
+liefert der Monats-Report direkt die passende Maßnahme/den Textentwurf mit.
+**Laufzeit:** 12 Monate Mindestlaufzeit, danach kündbar mit 3 Monaten Frist zum Monatsende;
+optional Jahres-Vorauszahlung mit Rabatt. **Launch-Taktik:** hoch starten, Pilot-Hotels erhalten
+einen ausgewiesenen "Founding Member"-Rabatt (Preise später zu erhöhen ist schwer, zu senken
+leicht).
 
 **Preisarchitektur-Logik:**
 - **Ein einziges Abo — bewusst keine Varianten:** Eine frühere Flex-Variante (monatlich

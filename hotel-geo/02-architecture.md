@@ -88,7 +88,8 @@ explizit human-in-the-loop. Umschalten auf `api` jederzeit möglich (Skalierungs
 leads            id, email, status(pending|verified|customer), verify_token, created_at,
                  consent_at, utm_json
 hotels           id, name, city, country, website_url, booking_url?, category(stars),
-                 price_band(1-4), audit_languages[], ui_language(de|en),
+                 price_band(1-4), room_count?, size_class(S|M|L),
+                 audit_languages[], ui_language(de|en),
                  guest_mix_json?, owner_lead_id?, intake(self_service|manual), created_at
                  -- ui_language: beim Eintrag gewählt (Browser-Vorbelegung), gepinnt für
                  --   Mails/Teaser/Reports/Portal; änderbar, wechselt nie automatisch
