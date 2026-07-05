@@ -114,12 +114,18 @@ Upgrade-Pfade: 2→3 (Differenzpreis), 2/3→4 (Abo-CTA in jedem Report), übera
 
 ### M2 — Wettbewerbs-Modul
 
-- Auto-Erkennung: Kandidaten aus den Audit-Antworten (wer wird stattdessen empfohlen?) +
-  LLM-Filter auf gleiche Kategorie, Preisklasse, Region → 3–5 Wettbewerber.
-- Admin kann Wettbewerber ersetzen/ergänzen (Hotels nennen oft ihre eigenen).
-- Wettbewerber durchlaufen dieselbe Prompt-Batterie → Score-Vergleich ("Sie: 34, Median der
-  Vergleichsgruppe: 51").
-- Teaser: anonymisiert. Vollreport: mit Namen.
+- **Free (automatisch):** Kandidaten aus den Audit-Antworten (wer wird stattdessen empfohlen?)
+  + LLM-Filter auf gleiche Kategorie, Preisklasse, Region → 3–5 Wettbewerber. Teaser zeigt sie
+  nur anonymisiert.
+- **Bezahlversion (selbst wählbar):** Käufer/Abo-Kunden legen ihre direkten Konkurrenten selbst
+  fest (max. 5; im Portal bzw. nach Report-Kauf); zusätzlich Admin-Override. Änderungen kosten
+  keine neuen Abfragen — Scores werden aus den vorhandenen Antworten neu berechnet.
+- **Score-Vergleich im Booking-Stil:** kundenseitig überall 10-Punkte-Skala mit einer
+  Dezimalstelle ("Sie: 6,5 / 10 — [Wettbewerber]: 7,5 / 10").
+- **Lücken-Analyse (Bezahlversion):** pro Wettbewerber die Aufholpunkte, hergeleitet aus dem
+  Prompt-Vergleich: bei welchen Anfrage-Typen (Persona/Intent/Sprache) wird der Wettbewerber
+  empfohlen und das eigene Hotel nicht → verknüpft mit konkreten Playbook-Maßnahmen
+  ("Hier sind die Punkte, mit denen Sie aufholen").
 
 ### M3 — GEO-Optimizer (Stufe 3)
 
@@ -221,9 +227,18 @@ Wiedererkennbarkeit der Marke, Vergleichbarkeit, minimaler Pflegeaufwand.
 
 ## 6. Sprachen
 
-- **Audit-Sprachen:** pro Hotel konfigurierbar; Default DE + EN, zusätzlich FR/IT/NL/ES je
-  Gästemix. Mini-Audit: max. 2 Sprachen.
-- **Report-/UI-Sprachen:** DE + EN (pro Hotel wählbar). Funnel-Website zunächst DE, EN folgt.
+- **UI-/Report-Sprache (gepinnt):** Beim Eintrag (Stufe 0) wählt der Nutzer DE oder EN
+  (vorbelegt aus Browser-Sprache). Das Hotel wird darauf **gepinnt**: alle Mails, Teaser,
+  Reports, Portal erscheinen konsistent in dieser Sprache. Änderbar im Portal/Admin, wechselt
+  nie automatisch.
+- **Audit-Sprachen (davon getrennt):** Default DE + EN; ab Vollreport/Abo pro Hotel
+  konfigurierbar (FR/IT/NL/ES/…). Mini-Audit: max. 2 Sprachen.
+- **Gästemix-Sprachberatung (Bezahlversion):** Beim Kauf/Abo wird der Gästemix abgefragt
+  ("Woher kommen Ihre Gäste hauptsächlich?"). Das Playbook vergleicht Gästemix mit
+  Sichtbarkeit pro Sprache und empfiehlt konkret: Inhalte in Sprache X erstellen/übersetzen,
+  Sprache Y ins Monitoring aufnehmen ("22 % US-Gäste, aber Sichtbarkeit bei englischen
+  Anfragen nur 3,1/10"). Maßnahmentyp unter Hebel H2; natürlicher Abo-Upsell.
+- Funnel-Website zunächst DE, EN folgt.
 
 ## 7. Erfolgskriterien
 

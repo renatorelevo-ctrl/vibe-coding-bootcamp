@@ -48,7 +48,7 @@ Akzeptanzkriterien, reviewt Diffs.
 
 | # | Task | Spec | Akzeptanzkriterien |
 |---|---|---|---|
-| P2.1 | Landingpage: Nutzenversprechen, Eintrags-Flow (Hotelname→Disambiguierung→E-Mail), Turnstile | 01 §3 | E2E: Eintrag bis "Mail verschickt" |
+| P2.1 | Landingpage: Nutzenversprechen, Eintrags-Flow (Hotelname→Disambiguierung→E-Mail), Sprachwahl DE/EN (Browser-vorbelegt, pinnt `ui_language`), Turnstile | 01 §3, §6 | E2E: Eintrag bis "Mail verschickt"; Mails/Teaser folgen ui_language |
 | P2.2 | Lead-API: Dedupe (Hotel 90-Tage-Regel), Rate-Limits (IP/E-Mail-Domain), Wegwerf-Domain-Liste | 03 §3 | Tests: alle Limits greifen serverseitig |
 | P2.3 | Double-Opt-in: Brevo-Adapter, Verify-Flow, erst danach Mini-Audit-Enqueue; Auto-Löschung unverifizierter Leads (30 T) | 03 §2 | E2E mit Mock-Mail; Cron-Löschung getestet |
 | P2.4 | Teaser-Report: reduziertes DTO (serverseitige Garantie!), Teaser-Seite (Score, anonym-Balken, Fehler-Zähler), signierte Access-Tokens mit Ablauf | 01 §3.1, 03 §4 | Test: DTO enthält nie Namen/Claim-Texte (Schema-Assertion); E2E Teaser-Ansicht |
@@ -61,7 +61,8 @@ Akzeptanzkriterien, reviewt Diffs.
 |---|---|---|---|
 | P3.1 | Stripe Checkout (tier report/optimizer), Webhook (signiert, idempotent), `orders`, Widerrufs-Verzicht-Checkbox | 02 §6, 03 §6 | Stripe-Test-Mode E2E |
 | P3.2 | Kauf → Voll-Audit-Job (alle 4 Provider, alle Sprachen, voller Fakten-Check, Wettbewerber-Läufe) | 02 §5 | Integrationstest mit Mocks |
-| P3.3 | Vollreport Web: Scores pro Plattform/Sprache, Wettbewerber mit Namen, Faktenfehler im Wortlaut + Quelle, Methodik-Seite | 01 §5 | Report aus Fixture-Run pixel-geprüft (Snapshot) |
+| P3.3 | Vollreport Web: Scores pro Plattform/Sprache (Anzeige X,X/10), Wettbewerber mit Namen + Lücken-Analyse ("Aufholpunkte"), Faktenfehler im Wortlaut + Quelle, Methodik-Seite | 01 §5, 04 §5.3–5.4 | Report aus Fixture-Run pixel-geprüft (Snapshot) |
+| P3.3b | Käufer-Wettbewerberwahl: nach Report-Kauf eigene Konkurrenten festlegen (max 5, `manual_customer`) → Neuberechnung + Report-Update ohne neue Abfragen; Gästemix-Abfrage im Checkout | 01 §4 M2, §6 | E2E: Änderung → aktualisierte Scores im Report |
 | P3.4 | PDF-Export (Playwright-Print des Web-Reports, DE/EN-Templates) | 02 §2 | PDF-Artefakt in CI erzeugt |
 | P3.5 | Report-Prosa via SYNTHESIZER (Executive Summary, Empfehlungen) mit Zahlen-Interpolation aus Code | 04 §10 | Golden-Test: keine erfundenen Zahlen (Regex-Assertion gegen Input-Zahlenmenge) |
 | P3.6 | Admin v1: Leads/Hotels/Runs/Orders-Listen, Wettbewerber-Override-UI, Run-Detail mit Kosten & Logs, Re-Run-Button, Kosten-Dashboard | 02 §7 | E2E: Override → Folgelauf nutzt manuelle Liste |
@@ -91,7 +92,8 @@ Akzeptanzkriterien, reviewt Diffs.
 | P5.3 | Alert-Engine: Diff-Regeln (neuer Fehler, Score-Einbruch), wöchentlicher Light-Check, Alert-Mails | 04 §8 |
 | P5.4 | Tracking-Snippet (<2 KB, cookielos) + `/api/track` (Aggregat-Zähler, transientes Rate-Limit) + Einbau-Doku mit Datenschutz-Textbaustein | 03 §7 |
 | P5.5 | AI-Traffic-Dashboard im Abo-Report (Referrer-Klassen, Verlauf) + Grenzen-Hinweis | 01 F-H |
-| P5.6 | Kundenportal (F-I): `portal_users` + Magic-Link, Dashboard (Score-Verlauf, Fehler-Bilanz, AI-Traffic, Maßnahmen-Checkliste, Report-Archiv), Mandanten-Scope-Helper, Zugang an Abo-Status gekoppelt | 02 §7b |
+| P5.6 | Kundenportal (F-I): `portal_users` + Magic-Link, Dashboard (Score-Verlauf X,X/10, Fehler-Bilanz, AI-Traffic, Maßnahmen-Checkliste, Report-Archiv), Wettbewerber-Verwaltung + Lücken-Analyse, Sprach-/Gästemix-Einstellungen, Mandanten-Scope-Helper, Zugang an Abo-Status gekoppelt | 02 §7b, 04 §5.4 |
+| P5.7 | Gästemix-Sprachberatung: Abgleich Gästemix ↔ Sichtbarkeit pro Sprache → Empfehlungs-Baustein in Playbook + Monats-Report (Sprachen-Upsell) | 01 §6 |
 
 ## Phase P6 — Analyse-Suite
 

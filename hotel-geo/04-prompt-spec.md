@@ -141,12 +141,23 @@ composite      = 0.7 × visibility + 0.15 × share_of_voice + 0.15 × fact_accur
 Alle Gewichte sind `settings` — Methodik-Anpassungen ohne Deploy, aber versioniert (Score trägt
 `methodology_version`).
 
-### 5.3 Teaser-Darstellung
+### 5.3 Darstellung: 10-Punkte-Skala (Booking-Stil)
 
-Composite-Score 0–100 mit Bändern: 0–25 "kaum sichtbar", 26–50 "unterdurchschnittlich",
-51–75 "solide", 76–100 "stark". Vergleichsbalken: Zielhotel + anonymisierte Wettbewerber
-("Hotel A–E", absteigend sortiert), Aussagen-Template: "N von M vergleichbaren Hotels werden
-häufiger empfohlen als Sie."
+Intern wird durchgehend 0–100 gerechnet; **kundenseitig wird überall /10 mit einer
+Dezimalstelle angezeigt** (composite 65 → "6,5 / 10") — die Skala, in der Hoteliers denken.
+Bänder: 0–2,5 "kaum sichtbar", 2,6–5,0 "unterdurchschnittlich", 5,1–7,5 "solide",
+7,6–10 "stark". Admin kann beide Skalen sehen (Drill-Down zeigt Rohwerte).
+
+Teaser: Score als X,X/10 + Vergleichsbalken Zielhotel + anonymisierte Wettbewerber ("Hotel A–E",
+absteigend sortiert), Aussagen-Template: "N von M vergleichbaren Hotels werden häufiger
+empfohlen als Sie."
+
+### 5.4 Lücken-Analyse (Bezahlversion)
+
+Deterministisch aus vorhandenen Daten: pro Wettbewerber die Prompt-Gruppen (Persona × Intent ×
+Sprache), in denen er empfohlen wird und das Zielhotel nicht, sortiert nach Gewicht. Ausgabe:
+"Aufholpunkte" mit Verweis auf passende Playbook-Maßnahmen (H1–H6) und betroffene Sprache
+(Input für die Gästemix-Sprachberatung, 01 §6). SYNTHESIZER formuliert nur die Prosa darum.
 
 ## 6. Wettbewerber-Erkennung (COMPETITORS, SYNTHESIZER)
 

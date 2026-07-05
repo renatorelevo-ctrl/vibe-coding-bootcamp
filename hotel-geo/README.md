@@ -47,6 +47,9 @@ persönliche Beratung.
 | 19 | Report-Design | Ein einheitliches Template im eigenen CI — kein Hotel-Branding, kein White-Label (frühestens P7) |
 | 20 | Erklärbarkeit | Produktprinzip: jede Zahl erklärt sich selbst (zentrale Erklär-Inhalte DE/EN, Drill-Down bis zur Original-AI-Antwort, Wissensbasis "Methodik & Hebel" im Admin als Sales-Enablement) |
 | 21 | Wettbewerber-Kosten | Wettbewerber-Scores aus denselben Discovery-Antworten (hotelneutrale Prompts) — keine separaten Läufe, halbiert die Audit-Kosten; Abo-COGS im Vollautomatik-Modus ~6–9 €/Hotel/Monat |
+| 22 | UI-Sprache gepinnt | DE/EN-Wahl beim Eintrag (Browser-vorbelegt), pinnt Mails/Teaser/Reports/Portal; änderbar, wechselt nie automatisch. Audit-Sprachen getrennt davon |
+| 23 | Gästemix-Beratung | Bezahlversion fragt Gäste-Herkunft ab → Playbook empfiehlt Sprachen/Übersetzungen datenbasiert ("22 % US-Gäste, EN-Sichtbarkeit nur 3,1/10") — Abo-Upsell |
+| 24 | Score-Skala & Kunden-Wettbewerber | Kundenseitig Booking-Stil **X,X / 10** (intern 0–100); Bezahlkunden wählen eigene Konkurrenten (max 5, Neuberechnung ohne neue Abfragen) + Lücken-Analyse "Aufholpunkte" pro Wettbewerber |
 
 ## Status
 

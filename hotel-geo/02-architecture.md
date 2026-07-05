@@ -88,15 +88,20 @@ explizit human-in-the-loop. Umschalten auf `api` jederzeit möglich (Skalierungs
 leads            id, email, status(pending|verified|customer), verify_token, created_at,
                  consent_at, utm_json
 hotels           id, name, city, country, website_url, booking_url?, category(stars),
-                 price_band(1-4), languages[], report_language, owner_lead_id?,
-                 intake(self_service|manual), created_at
+                 price_band(1-4), audit_languages[], ui_language(de|en),
+                 guest_mix_json?, owner_lead_id?, intake(self_service|manual), created_at
+                 -- ui_language: beim Eintrag gewählt (Browser-Vorbelegung), gepinnt für
+                 --   Mails/Teaser/Reports/Portal; änderbar, wechselt nie automatisch
+                 -- guest_mix_json: Gäste-Herkunft, abgefragt bei Kauf/Abo (Sprachberatung)
 contacts         id, hotel_id, name, position, email, phone, is_primary, created_at
                  -- Pflicht-Ansprechpartner ab Kauf/Abo bzw. bei manueller Anlage
 terms_acceptances id, subject(lead|portal_user), subject_id, terms_version, accepted_at
                  -- revisionssicherer AGB-Nachweis (Checkbox nie vorangekreuzt)
 portal_users     id, hotel_id, contact_id, email, status, last_login_at
                  -- Magic-Link-Auth, nur für Abo-Kunden (F-I)
-competitor_links hotel_id, competitor_hotel_id, source(auto|manual), rank, active
+competitor_links hotel_id, competitor_hotel_id, source(auto|manual_admin|manual_customer),
+                 rank, active   -- Kunden-Auswahl (max 5) nur mit bezahlter Stufe; Änderung
+                 -- löst Score-Neuberechnung aus vorhandenen Antworten aus (keine Abfragen)
 batteries        id, hotel_id, version, language, prompts_json[], created_by_model, created_at
 audit_runs       id, hotel_id, type(mini|full|monthly|light_check), battery_id, status,
                  budget_cents, spent_cents, started_at, finished_at, error?
@@ -220,9 +225,11 @@ Synthese-Aufgabe wartet, Budget-/Anomalie-Alerts (03 §3). Konfigurierbar in set
 
 Eigener Bereich `/portal`, Magic-Link-Auth über `portal_users` (nur aktive Abos; Zugang erlischt
 mit Abo-Ende, Report-Archiv-Links bleiben gültig). Dashboard: Score-Verlauf (Recharts, pro
-Plattform filterbar), Faktenfehler behoben/neu, AI-Traffic (F-H), Wettbewerbs-Ranking anonym/
-namentlich je nach gekaufter Stufe, Maßnahmen-Checkliste (Status abhakbar → fließt in
-Monats-Report), Report-Archiv. Strikte Mandantentrennung: Queries immer über hotel_id des
+Plattform filterbar, Anzeige X,X/10), Faktenfehler behoben/neu, AI-Traffic (F-H),
+Wettbewerbs-Ranking namentlich mit Lücken-Analyse (04 §5.4), **Wettbewerber-Verwaltung**
+(eigene Konkurrenten festlegen, max 5 → Neuberechnung ohne neue Abfragen), Maßnahmen-Checkliste
+(Status abhakbar → fließt in Monats-Report), Sprach-Einstellungen (UI-Sprache, Gästemix),
+Report-Archiv. Strikte Mandantentrennung: Queries immer über hotel_id des
 eingeloggten portal_users (Drizzle-Helper erzwingt Scope).
 
 ## 7c. Erklär-Inhalte (Single Source of Truth)
