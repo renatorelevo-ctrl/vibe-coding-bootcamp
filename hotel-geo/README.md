@@ -57,7 +57,9 @@ persönliche Beratung.
 | 29 | Infrastruktur | DB + Worker auf der vorhandenen Hetzner-Box des Betreibers (Postgres in Docker, tägliche Off-Site-Backups, Firewall, Restore-Test); App auf Vercel fra1; "Serverstandort Deutschland" als Vertriebsargument. Fallback: Managed Postgres |
 | 30 | Liefer-Zusagen & Freigabe | Hotel-Journey mit SLAs (Teaser < 30 Min, Report < 24 h, Operator-Deliverables < 5 Werktage, → 01 §3.3); `report_auto_publish`-Schalter pro Report-Typ: Vollautomatik vs. Freigabe-Gate in der Admin-Handlungsliste |
 | 31 | Abo-Rhythmus & Sprachen | Erwartung: **ein Bericht/Monat** (kompletter Re-Audit, Score vs. Wettbewerber, Verbesserungspunkte); wöchentlicher Check läuft **still** (Mail nur bei kritischem Fund = Alert). Bis zu **5 Audit-Sprachen im Abopreis inklusive** (jederzeit im Portal aktivierbar, muttersprachliche Batterien, eigene Zeitreihe pro Sprache) |
-| 32 | Fixe 5er-Struktur | **Immer genau 5 Wettbewerber-Slots** (Free: vollautomatisch generiert + Auffüll-Regel, anonymisiert; ab Kauf: jeder Slot manuell umstellbar) und **5 Sprach-Slots** (DE + EN immer automatisch; ab Kauf: 3 weitere nach Wahl; Free: nur DE + EN) — kundenseitig wie im Backend identisch |
+| 32 | Fixe 5er-Struktur | **Immer genau 5 Wettbewerber-Slots** (Free: vollautomatisch generiert + Auffüll-Regel, anonymisiert; ab Kauf: jeder Slot manuell umstellbar) und **5 Sprach-Slots** — kundenseitig wie im Backend identisch |
+| 33 | Sprach-Slots frei belegbar | Free: 2 Slots automatisch = **Landessprache des Hotels + EN** (international-tauglich). Ab Kauf: **alle 5 Slots frei belegbar**, auch Deutsch austauschbar |
+| 34 | Stack-Abgleich | Default-Hosting: **alles auf der Hetzner-Box** via Coolify (App+DB+Worker, Serverstandort Deutschland komplett; Vercel als Skalierungs-Option). Slack-Webhook für Admin-Benachrichtigungen (Betreiber arbeitet in Slack). Neu anzulegen: OpenAI-/Perplexity-/Anthropic-API-Konten, Stripe, Brevo, Turnstile, Domain. Airtable/Drive bewusst NICHT fürs Produkt (Datensparsamkeit) |
 
 ## Status
 

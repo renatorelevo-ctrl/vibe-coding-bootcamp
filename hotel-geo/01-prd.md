@@ -139,8 +139,8 @@ liefert der Monats-Report direkt die passende Maßnahme/den Textentwurf mit.
   Verkaufsargument: "Wir überwachen kontinuierlich — Sie hören von uns nur, wenn es wichtig
   ist." Keine Mail-Flut.
 
-**Sprachen im Abo inklusive — fixe Struktur, 5 Slots:** DE + EN immer automatisch, ab Kauf/Abo
-drei weitere Sprachen nach Wahl (z. B. KO/ZH/JA/FR/IT) — jederzeit im Portal aktivierbar, ohne Aufpreis
+**Sprachen im Abo inklusive — fixe Struktur, 5 Slots, alle frei belegbar:** Start-Belegung
+Landessprache + EN, jeder Slot austauschbar (z. B. KO/ZH/JA/FR/IT) — jederzeit im Portal, ohne Aufpreis
 (Mehrkosten für uns: ~2–3 €/Sprache/Monat). Ablauf: Sprache aktivieren → System generiert
 muttersprachliche Prompt-Batterie (eigene Batterie-Version nur für diese Sprache; bestehende
 Sprachen bleiben vergleichbar) → ab dem nächsten Monats-Audit inklusive Sprach-Sektion im
@@ -327,10 +327,12 @@ Wiedererkennbarkeit der Marke, Vergleichbarkeit, minimaler Pflegeaufwand.
   (vorbelegt aus Browser-Sprache). Das Hotel wird darauf **gepinnt**: alle Mails, Teaser,
   Reports, Portal erscheinen konsistent in dieser Sprache. Änderbar im Portal/Admin, wechselt
   nie automatisch.
-- **Audit-Sprachen (davon getrennt) — fixe Struktur: 5 Slots.** DE + EN werden **immer
-  automatisch** erstellt (Free wie Bezahlt). Ab Kauf/Abo werden die Slots 3–5 freigeschaltet:
-  drei weitere Sprachen nach Wahl (KO/ZH/JA/FR/IT/NL/ES/…). Free-Version: nur DE + EN,
-  keine Wahlmöglichkeit.
+- **Audit-Sprachen (davon getrennt) — fixe Struktur: 5 Slots.**
+  **Free:** 2 Slots, automatisch belegt mit **Landessprache des Hotels + Englisch**
+  (DACH-Hotel: DE+EN; italienisches Hotel: IT+EN), keine Wahlmöglichkeit.
+  **Ab Kauf/Abo:** alle 5 Slots **frei belegbar** — auch die Defaults sind austauschbar
+  (ein Hotel mit rein internationalem Publikum braucht ggf. kein Deutsch). Sprachen:
+  KO/ZH/JA/FR/IT/NL/ES/DA/PL/….
 - **Gästemix-Sprachberatung (Bezahlversion):** Beim Kauf/Abo wird der Gästemix abgefragt
   ("Woher kommen Ihre Gäste hauptsächlich?"). Das Playbook vergleicht Gästemix mit
   Sichtbarkeit pro Sprache und empfiehlt konkret: Inhalte in Sprache X erstellen/übersetzen,

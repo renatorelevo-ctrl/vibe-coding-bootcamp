@@ -22,7 +22,7 @@
 | DB | PostgreSQL auf der **vorhandenen Hetzner-Box des Betreibers** (Docker, z. B. via Coolify; Serverstandort Deutschland). Pflicht dabei: tägliche Off-Site-Backups (Hetzner Storage Box/S3), automatische Security-Updates, Firewall (DB-Port nur für App-IPs/VPN), dokumentierter Restore-Test. Fallback/Alternative: Managed Postgres (Neon/Supabase, Frankfurt), Migration ist nur ein Connection-String | relationale Audit-Daten, JSONB für LLM-Antworten; "Serverstandort Deutschland" als Vertriebsargument |
 | ORM | Drizzle | typsicher, migrationsfreundlich, gut für kleinere Executor-Modelle |
 | Jobs | DB-gestützte Queue (`jobs`-Tabelle) + Worker; Trigger via Vercel Cron/QStash. Interface `JobRunner`, sodass später Inngest/Worker auf Hetzner einsetzbar | kein Vendor-Lock, einfach zu testen |
-| Hosting | App: Vercel (Region fra1; Latenz zu Hetzner FSN/NBG ~5 ms). Worker für lange Jobs (Audits, Crawling, PDF): auf der Hetzner-Box — dort liegen DB und Rechenleistung ohnehin. Später optional komplett auf die Box (Coolify) | EU, einfach; Box wird voll genutzt |
+| Hosting | **Default: alles auf der Hetzner-Box** via Coolify (App + DB + Worker; Deploys aus GitHub, automatisches SSL). Ein deutscher Server = stärkstes Datenschutz-Argument, minimale Kosten, ein AVV-Kreis. Vercel (fra1) bleibt dokumentierte Skalierungs-Option, Umzug ist bei Next.js trivial | Serverstandort Deutschland komplett |
 | Payment | Stripe (Checkout + Billing für Abo) | Standard, Rechnungen, EU-Steuern via Stripe Tax |
 | E-Mail | Brevo (EU-Anbieter) hinter `MailProvider`-Interface | DSGVO-freundlich, Double-Opt-in-Support |
 | PDF | Playwright rendert die Web-Report-Seite als PDF (Chromium headless) | ein Template für Web+PDF |
@@ -222,8 +222,9 @@ Override; Audit-Runs (Status, Kosten, Logs, Re-Run); Bestellungen/Abos (Stripe-L
 Synthese-Warteschlange (Operator-Modus); Reports (Vorschau, Regenerieren); Kosten-Dashboard;
 Settings; Benchmark-Ansicht.
 
-**Admin-Benachrichtigungen (Mail mit Admin-Direktlink):** neuer Kauf, neues/gekündigtes Abo,
-Synthese-Aufgabe wartet, Budget-/Anomalie-Alerts (03 §3). Konfigurierbar in settings.
+**Admin-Benachrichtigungen (Mail mit Admin-Direktlink, zusätzlich optional Slack-Webhook —
+der Betreiber arbeitet in Slack):** neuer Kauf, neues/gekündigtes Abo, Synthese-Aufgabe wartet,
+Budget-/Anomalie-Alerts (03 §3). Kanäle pro Ereignistyp konfigurierbar in settings.
 
 ## 7b. Kundenportal (F-I)
 

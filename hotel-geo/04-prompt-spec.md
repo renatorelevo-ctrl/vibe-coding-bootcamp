@@ -41,7 +41,8 @@ Anforderungen an die Ausgabe (JSON-Array):
 | Direct-Ask-Set | ~20 % | Fakten-Provokation: "Erzähl mir über [Hotel X] — Preise, Ausstattung, lohnt es sich?" → maximiert extrahierbare Claims für den Fakten-Check |
 
 Größen: **Voll-Audit** 60–120 Prompts (nach Sprachanzahl), **Mini-Audit** = markiertes, stabiles
-Subset von 15–20 (höchstgewichtete Discovery-Prompts + 3 Direct-Ask; Sprachen: immer DE + EN).
+Subset von 15–20 (höchstgewichtete Discovery-Prompts + 3 Direct-Ask; Sprachen: Landessprache
+des Hotels + EN).
 
 ### 1.4 Versionierung & Vergleichbarkeit
 
