@@ -15,6 +15,25 @@ konkrete Optimierung bis zu laufendem Monitoring und persönlicher Beratung.
 **Positionierung:** "SEO war gestern. Wir zeigen dir, ob ChatGPT dich empfiehlt — und sorgen dafür,
 dass es das tut."
 
+## 1b. Markt & Wettbewerb (Stand Juli 2026)
+
+Generische AI-Visibility-Tools: Otterly (ab ~$29/Mon., Budget), Peec AI (€89–199/Mon.),
+Scrunch (~$250–300/Mon.), Profound (ab $499/Mon., Enterprise). Hotel-spezifisch: Hotelrank.ai
+(Staffelung nach Hotelanzahl, Optimierungs-Aktionen nur im Pro-Plan), hotelmarketer.ai
+(ein Preis, alles inklusive, "no lock-in", Framing "weniger als eine Booking-Kommission/Monat"),
+RevPARGenius (kostenloser Scan als Lead-Magnet, 5 Engines).
+
+Ableitungen:
+- **Preis validiert:** 149 €/Mon. liegt im Marktkorridor. Framing übernehmen: "Eine einzige
+  Direktbuchung pro Monat zahlt das Abo" (OTA-Kommission ~15–18 %).
+- **Gratis-Scan ist Branchenstandard** — der Teaser allein differenziert nicht.
+- **Unsere Differenzierer:** (1) Faktenfehler-Check als emotionaler Kaufauslöser (bewirbt kein
+  Wettbewerber prominent), (2) fertige Deliverables statt nur Empfehlungen (Rewrites, FAQ,
+  Schema-Code), (3) DACH/deutschsprachig (Wettbewerb ist US/EN-fokussiert), (4) Mehrsprachigkeit
+  nach Gästemix, (5) persönliche Beratung als Premium-Stufe, (6) Benchmark-DB als Daten-Moat.
+- **12-Monats-Bindung offensiv begründen** (Wettbewerber wirbt mit "no lock-in"): Pricing-Seite
+  erklärt die Bindung mit den inkludierten Deliverables im Wert von 599 €.
+
 ## 2. Zielgruppen
 
 | Persona | Rolle | Bedürfnis |
