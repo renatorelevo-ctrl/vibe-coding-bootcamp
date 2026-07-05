@@ -58,7 +58,8 @@ Jeder Gratis-Eintrag kostet API-Geld. Verteidigungslinien, alle serverseitig:
 2. **Cloudflare Turnstile** auf dem Eintragsformular (unsichtbar, DSGVO-tauglich konfigurieren).
 3. **Rate-Limits:** pro IP (z. B. 3 Einträge/Tag), pro E-Mail-Domain (Wegwerf-Domains-Blockliste),
    pro Hotel: **1 Gratis-Audit / 90 Tage** — Wiederholungs-Eintrag bekommt den bestehenden Teaser.
-4. **Budget-Hierarchie (CostGuard):** hartes Budget pro Run (mini z. B. 0,25 €, full 8 €) →
+4. **Budget-Hierarchie (CostGuard):** hartes Budget pro Run (mini z. B. 0,25 €, full 12 € —
+   Puffer über der 5–9-€-Schätzung) →
    globales Tagesbudget (z. B. 50 €, Admin-Setting) → bei Überschreitung: Queue pausiert,
    Admin-Alert. Kein LLM-Call ohne vorherige Budget-Prüfung.
 5. **Anomalie-Alert:** > N Einträge/Stunde → Mail an Admin (mögliche Script-Attacke).
@@ -115,7 +116,7 @@ Regeln für alle EXECUTOR/SYNTHESIZER-Aufrufe:
 - **AI-Antworten als Zitat:** Faktenfehler-Zitate im Report kennzeichnen als "Ausgabe des
   jeweiligen AI-Systems am Messdatum", inkl. Methodik-Disclaimer (Consumer-App kann abweichen).
 - **B2B-only & Vertragslaufzeit:** AGB beschränken das Angebot ausdrücklich auf Unternehmer
-  (§ 14 BGB) — damit ist die 12-Monats-Erstlaufzeit des Jahres-Abos zulässig und
+  (§ 14 BGB) — damit ist die 12-Monats-Mindestlaufzeit des Abos zulässig und
   Verbraucher-Widerrufs-/Kündigungsregeln greifen nicht. Checkout enthält eine
   Unternehmer-Bestätigung (Checkbox + Firmenname als Pflichtfeld). Anwaltlich mitprüfen.
 - **Win-back-Mails (Stufe 6):** werbliche E-Mails an Bestandskunden erfordern eine separate,

@@ -19,10 +19,10 @@
 |---|---|---|
 | Web-App | Next.js (App Router, TypeScript) | Funnel + Reports + Admin in einer App; Team-Know-how |
 | UI | Tailwind + shadcn/ui | schnell, konsistent |
-| DB | PostgreSQL, EU-Region (Neon oder Supabase, Frankfurt) | relationale Audit-Daten, JSONB für LLM-Antworten |
+| DB | PostgreSQL auf der **vorhandenen Hetzner-Box des Betreibers** (Docker, z. B. via Coolify; Serverstandort Deutschland). Pflicht dabei: tägliche Off-Site-Backups (Hetzner Storage Box/S3), automatische Security-Updates, Firewall (DB-Port nur für App-IPs/VPN), dokumentierter Restore-Test. Fallback/Alternative: Managed Postgres (Neon/Supabase, Frankfurt), Migration ist nur ein Connection-String | relationale Audit-Daten, JSONB für LLM-Antworten; "Serverstandort Deutschland" als Vertriebsargument |
 | ORM | Drizzle | typsicher, migrationsfreundlich, gut für kleinere Executor-Modelle |
 | Jobs | DB-gestützte Queue (`jobs`-Tabelle) + Worker; Trigger via Vercel Cron/QStash. Interface `JobRunner`, sodass später Inngest/Worker auf Hetzner einsetzbar | kein Vendor-Lock, einfach zu testen |
-| Hosting | Vercel (Region fra1) — Alternative: Hetzner + Coolify, falls Worker-Laufzeiten Serverless sprengen | EU, einfach |
+| Hosting | App: Vercel (Region fra1; Latenz zu Hetzner FSN/NBG ~5 ms). Worker für lange Jobs (Audits, Crawling, PDF): auf der Hetzner-Box — dort liegen DB und Rechenleistung ohnehin. Später optional komplett auf die Box (Coolify) | EU, einfach; Box wird voll genutzt |
 | Payment | Stripe (Checkout + Billing für Abo) | Standard, Rechnungen, EU-Steuern via Stripe Tax |
 | E-Mail | Brevo (EU-Anbieter) hinter `MailProvider`-Interface | DSGVO-freundlich, Double-Opt-in-Support |
 | PDF | Playwright rendert die Web-Report-Seite als PDF (Chromium headless) | ein Template für Web+PDF |
@@ -179,6 +179,9 @@ Job-Kette pro Audit-Run; jeder Schritt idempotent, Zustand in DB:
                 fact_accuracy, composite (→ 04 §5)
 8. REPORT       content_json bauen; Prosa-Abschnitte via SYNTHESIZER; PDF-Render (full);
                 Teaser-DTO ableiten (reduziert)
+                Freigabe-Schalter (settings `report_auto_publish`, pro Report-Typ): ON =
+                Vollautomatik, Report geht direkt raus (Dashboard listet ihn für Stichproben);
+                OFF = Report wartet in der Admin-Handlungsliste auf Freigabe vor der Kundenmail
 9. NOTIFY       Ergebnis-Mail (Teaser-Link bzw. Report-Link); bei monthly: AlertService-Diff
 ```
 

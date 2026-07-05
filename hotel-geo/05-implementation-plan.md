@@ -132,7 +132,8 @@ Stufen 3/4 bereits als "demnächst" mit Interessen-Button (validiert Nachfrage, 
 1. Rechtstexte anwaltlich geprüft (inkl. Booking-Abruf-Einschätzung, 03 §6).
 2. CostGuard-Lasttest: 100 simulierte Gratis-Einträge → Tagesbudget stoppt korrekt.
 3. Echtlauf mit 3 realen Pilot-Hotels (bekannte Häuser des Betreibers), Scores plausibilisiert.
-4. Reproduzierbarkeits-Check: Demo-Hotel 3× auditiert, composite ±5 Punkte.
+4. Reproduzierbarkeits-Check: Demo-Hotel 3× auditiert, composite ±5 Punkte (0–100-Skala,
+   entspricht ±0,5 auf der kundenseitigen 10er-Skala).
 
 ## Betriebskosten-Schätzung (Größenordnung, Stand Juli 2026 — CostGuard liefert Ist-Zahlen)
 
@@ -143,7 +144,7 @@ Stufen 3/4 bereits als "demnächst" mit Interessen-Button (validiert Nachfrage, 
 | Mini-Audit (Gratis-Lead) | < 0,10 € |
 | Voll-Audit/Vollreport (~320 Abfragen inkl. Websuche + Extraktion + Fakten-Check + Prosa) | 5–9 € |
 | Optimierungspaket vollautomatisch | +1–3 € (im Operator-Modus: 0 €) |
-| Abo pro Hotel/Monat (Monats-Re-Audit 4–7 € + wöchentl. Light-Checks 1,50–2 € + Prosa ~0,20 €) | **6–9 €/Monat** → >90 % Rohmarge bei 99–199 € Abo |
+| Abo pro Hotel/Monat (Monats-Re-Audit 4–7 € + wöchentl. Light-Checks 1,50–2 € + Prosa ~0,20 €) | **6–9 €/Monat** → >95 % Rohmarge bei 249–599 € Abo |
 
 Größte Kostenhebel: Anzahl Sprachen (+~50 %/Sprache) und Websuche-/Grounding-Gebühren der
 Plattformen. Wettbewerber-Scores kosten nichts extra (gleiche Antworten, 04 §1.4).

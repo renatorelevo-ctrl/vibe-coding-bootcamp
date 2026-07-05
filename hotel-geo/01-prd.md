@@ -150,12 +150,24 @@ leicht).
 
 Upgrade-Pfade: 2→3 (Differenzpreis), 2/3→4 (Anrechnung), überall →5.
 
+### §3.3 Hotel-Journey: Wer bekommt was wann (verbindliche Liefer-Zusagen)
+
+| Moment | Was das Hotel bekommt | Zusage |
+|---|---|---|
+| Eintrag (Min. 0) | Bestätigungs-Mail (Double-Opt-in), Sprachwahl wirkt ab sofort | sofort |
+| Nach Bestätigung | Teaser-Mail mit Ergebnis-Link | < 30 Min (Ziel: < 5 Min) |
+| Kauf Vollreport | Report-Mail (Web-Link + PDF) | < 24 h (i. d. R. wenige Stunden) |
+| Kauf Optimierungspaket | Report wie oben + alle Optimierungs-Deliverables | Vollautomatik: < 24 h; Operator-Modus: < 5 Werktage (auf Pricing-Seite ausgewiesen) |
+| Abo-Start | Portal-Zugang (Magic-Link-Mail) sofort; Report + Optimierungspaket wie oben; Tracking-Snippet + Einbauanleitung | sofort / < 24 h / < 5 Werktage |
+| Laufendes Abo | Monats-Report (Mail + Portal) am Monatsanfang; Alerts sofort bei Fund; neue Maßnahmen im Monats-Report | monatlich + ereignisgesteuert |
+| 6 Monate nach Einmal-Kauf | Win-back-Vergleichsmail (nur mit Marketing-Einwilligung) | automatisch |
+
 ### Stufe 6 — Wiederkehr-Motor (Win-back, automatisch)
 
 6 Monate nach einem Einmal-Kauf (Stufe 2/3) läuft automatisch ein Mini-Re-Audit (Kosten:
 Cents) und erzeugt eine personalisierte Win-back-Mail: "Ihr Score im Januar: 6,5 — heute: 5,8.
 2 behobene Faktenfehler sind zurückgekehrt, [anonymisiert: ein Wettbewerber] hat Sie überholt."
-CTA: Jahres-Abo. Voraussetzung: separate Marketing-Einwilligung beim Checkout (Checkbox, nicht
+CTA: das Abo. Voraussetzung: separate Marketing-Einwilligung beim Checkout (Checkbox, nicht
 vorangekreuzt). Ohne Einwilligung: kein Re-Audit, keine Mail.
 
 ## 4. Module & Features (Vollvision)
@@ -311,7 +323,7 @@ Wiedererkennbarkeit der Marke, Vergleichbarkeit, minimaler Pflegeaufwand.
 | Conversion Eintrag → verifizierter Lead | > 60 % |
 | Conversion Lead → zahlender Kunde (Stufe 2+) | > 5 % |
 | API-Kosten Mini-Audit | < 0,10 € |
-| API-Kosten Voll-Audit | < 5 € |
+| API-Kosten Voll-Audit | < 9 € |
 | Audit-Laufzeit Mini | < 5 Min bis Ergebnis-Mail |
 | Abo-Churn | < 5 %/Monat |
 | Score-Reproduzierbarkeit (gleiche Batterie, gleicher Tag) | ± 5 Punkte |
