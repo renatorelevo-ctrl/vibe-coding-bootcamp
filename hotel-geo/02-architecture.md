@@ -165,7 +165,8 @@ Job-Kette pro Audit-Run; jeder Schritt idempotent, Zustand in DB:
                 validiert, → 04 §4; Antwort-Text gilt als UNTRUSTED, → 03 §5)
 5. COMPETITORS  (nur full/erster Lauf) Kandidaten aggregieren → SYNTHESIZER-Kuration
                 (Kategorie/Preis/Region-Match) → competitor_links(source=auto)
-                Danach: Wettbewerber-Batterie-Läufe (reduzierte Batterie) für Vergleichs-Scores
+                Vergleichs-Scores aus den VORHANDENEN Antworten berechnen (Discovery-Prompts
+                sind hotelneutral → enthalten alle Segment-Hotels; keine Extra-Abfragen)
 6. FACTCHECK    claims × truth_corpus → EXECUTOR-Verdikt (correct/incorrect/unverifiable)
                 mini: nur Website-Korpus, nur Top-Claims
 7. SCORE        deterministische Berechnung (kein LLM): visibility, share_of_voice,
@@ -223,6 +224,14 @@ Plattform filterbar), Faktenfehler behoben/neu, AI-Traffic (F-H), Wettbewerbs-Ra
 namentlich je nach gekaufter Stufe, Maßnahmen-Checkliste (Status abhakbar → fließt in
 Monats-Report), Report-Archiv. Strikte Mandantentrennung: Queries immer über hotel_id des
 eingeloggten portal_users (Drizzle-Helper erzwingt Scope).
+
+## 7c. Erklär-Inhalte (Single Source of Truth)
+
+Modul `content/explainers/` (Markdown/TS, DE+EN): pro Metrik, Hebel (H1–H6), Befund-Typ und
+Check ein Eintrag mit `short` (Tooltip), `long` (Glossar/Wissensbasis) und `faq` (typische
+Hotelier-Rückfragen + Antworten). Gerendert in Admin (Wissensbasis "Methodik & Hebel" +
+Info-Icons), Portal (Tooltips/Glossar) und Reports (Methodik-Seite) — **eine Quelle, überall
+identisch**. Drill-Down im Admin: Score → beteiligte Prompts → Original-Antwort (`llm_calls`).
 
 ## 8. Konfiguration & Secrets
 

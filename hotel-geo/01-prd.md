@@ -204,6 +204,21 @@ zu OTAs sind nicht messbar; dafür ist der Audit-Score der Proxy.
 Report-Grundsätze: Für Hoteliers geschrieben (kein AI-Jargon), jede Erkenntnis mit konkreter
 Handlungsempfehlung, Methodik-Seite (was wurde wie gemessen), Betreiber-Branding + Beratungs-CTA.
 
+**Design-Grundsatz — ein Template, unser CI:** Alle Reports nutzen ein einziges, hochwertiges
+Design im CI der Plattform. Hotelspezifisch sind nur Inhalte (Name, Daten), nie das Design.
+Kein Hotel-Branding, kein White-Label (frühestens P7 als Agentur-Feature). Vorteile:
+Wiedererkennbarkeit der Marke, Vergleichbarkeit, minimaler Pflegeaufwand.
+
+**Erklärbarkeits-Grundsatz — jede Zahl erklärt sich selbst:**
+1. Zentrale Erklär-Inhalte (DE/EN, eine Quelle im Code): jede Metrik, jeder Hebel, jeder
+   Befund hat einen Kurz-Erklärtext + "Woher kommt das?" — identisch angezeigt in Admin,
+   Portal und Reports (Tooltip/Info-Icon bzw. Glossar-Seite).
+2. Drill-Down im Admin: Score → beteiligte Prompts → Original-AI-Antwort im Wortlaut.
+   Der Betreiber kann jede Zahl bis zur Quelle belegen.
+3. Wissensbasis "Methodik & Hebel" im Admin: pro Hebel H1–H6 eine Klartext-Seite (was er
+   macht, warum er wirkt, welche Plattform, typische Hotelier-Rückfragen mit Antworten) —
+   zugleich Sales-Enablement für Beratungsgespräche.
+
 ## 6. Sprachen
 
 - **Audit-Sprachen:** pro Hotel konfigurierbar; Default DE + EN, zusätzlich FR/IT/NL/ES je

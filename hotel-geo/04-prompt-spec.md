@@ -48,8 +48,11 @@ Subset von 15–20 (höchstgewichtete Discovery-Prompts + 3 Direct-Ask, max. 2 S
 - Batterie unveränderlich pro Version; Monats-Runs nutzen dieselbe Version → Trend vergleichbar.
 - Neue Version nur bei: Hotelprofil-Änderung, Prompt-Vorlagen-Update, manuellem Admin-Refresh.
   Report markiert Versionswechsel ("Messmethodik aktualisiert — Vergleich eingeschränkt").
-- Wettbewerber-Läufe nutzen **dieselbe Discovery-Batterie** (Direct-Ask entfällt bzw. reduziert),
-  sonst wären Vergleichs-Scores unfair.
+- **Wettbewerber brauchen keine eigenen Läufe:** Discovery-Prompts nennen keinen Hotelnamen —
+  die Antworten enthalten bereits alle empfohlenen Hotels des Segments. Wettbewerber-Scores
+  werden aus **denselben Antworten** berechnet (gleiche Batterie, per Definition fair, null
+  zusätzliche Abfragekosten). Optionale Wettbewerber-Tiefenanalyse (Direct-Ask über einen
+  Wettbewerber) nur auf Admin-Anforderung.
 
 ## 2. Ausführung (EXECUTE)
 
@@ -151,7 +154,9 @@ häufiger empfohlen als Sie."
 2. SYNTHESIZER-Kuration mit Hotelprofil: wähle 3–5 mit gleicher Kategorie (±1 Stern), ähnlichem
    Preisband, gleicher Destination; Ausgabe mit Begründung pro Auswahl (Admin-sichtbar).
 3. Persistiert als `competitor_links(source=auto)`; Admin-Override setzt `source=manual` und ist
-   für Folge-Audits bindend. Overrides lösen Wettbewerber-Batterie-Lauf für Neue aus.
+   für Folge-Audits bindend. Wettbewerber-Scores entstehen aus den vorhandenen Antworten (§1.4) —
+   ein Override kostet keine neuen Abfragen, nur Neuberechnung; manuell ergänzte Hotels, die in
+   den Antworten nie vorkamen, erhalten Score 0 mit Hinweis (korrekt: sie sind unsichtbar).
 
 ## 7. GEO-Optimizer-Prompts (SYNTHESIZER)
 

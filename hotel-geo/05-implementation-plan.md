@@ -40,7 +40,7 @@ Akzeptanzkriterien, reviewt Diffs.
 | P1.6 | EXTRACT-Step: Extraktions-Prompt, Zod-Schema, Alias-/Fuzzy-Normalisierung im Code, `injection_suspected`-Pfad | 04 §3, 03 §5 | Golden-Tests: 10 Fixture-Antworten → erwartete Mentions/Claims |
 | P1.7 | FACTCHECK-Step: Retrieval (Keyword/Abschnitt), Verdikt-Prompt, Preis-Toleranz, Claim-Dedupe | 04 §4 | Golden-Tests inkl. ±15 %-Preisregel |
 | P1.8 | `ScoringService`: Formeln 04 §5 deterministisch + `methodology_version` | 04 §5 | Property-Tests (Grenzen 0/100, Gewichts-Summen) |
-| P1.9 | COMPETITORS-Step: Kandidaten-Aggregation, Kurations-Prompt, `competitor_links`, Wettbewerber-Läufe (Discovery-Batterie) | 04 §6 | Fixture-Flow: auto-Auswahl 3–5, Override bindend |
+| P1.9 | COMPETITORS-Step: Kandidaten-Aggregation, Kurations-Prompt, `competitor_links`; Wettbewerber-Scores aus vorhandenen Antworten (keine Extra-Abfragen!) | 04 §6 | Fixture-Flow: auto-Auswahl 3–5, Override bindend, Override → nur Neuberechnung |
 | P1.10 | `AuditOrchestrator`: Job-Kette PREPARE→…→NOTIFY, Resume nach Crash, Statusmodell | 02 §5 | Integrationstest (alles gemockt): mini-Run end-to-end < deterministisch grün |
 | P1.11 | Technik-Check (H1): robots.txt-AI-Bots, llms.txt, Schema.org-Präsenz, SSR-Lesbarkeit, Latenz → `tech_checks`; deterministisch, keine LLM-Calls | 06 H1 | Fixture-Tests pro Check; Ergebnis im Vollreport-DTO |
 
@@ -69,6 +69,7 @@ Akzeptanzkriterien, reviewt Diffs.
 | P3.8 | Ansprechpartner + AGB: `contacts`-Erfassung im Checkout (Name, Position, E-Mail, Telefon als Pflicht), AGB-Checkbox mit versionierter Protokollierung (`terms_acceptances`) | 01 §3.1 | Test: Kauf ohne Kontakt/AGB unmöglich; Nachweis abfragbar |
 | P3.9 | Manuelle Hotel-Anlage (Stufe 0b): Admin-Formular Hotel+Ansprechpartner, Audit-Start per Klick, Ergebnis-Mail optional, `intake=manual` | 01 §3 | E2E: manuell angelegtes Hotel durchläuft identische Pipeline |
 | P3.10 | Admin-Dashboard (Startseite): KPI-Kacheln, Aktivitäts-Feed, Handlungsliste; Admin-Benachrichtigungs-Mails (Kauf, Abo, Synthese wartet) | 02 §7 | Dashboard aus Seed-Daten; Mail-Trigger getestet |
+| P3.11 | Erklär-Inhalte: `content/explainers/` (Metriken, Hebel H1–H6, Befund-Typen; DE/EN, short/long/faq), Wissensbasis-Seite im Admin, Info-Icons in Report + Admin, Drill-Down Score→Prompts→Original-Antwort | 02 §7c, 01 §5 | Jede Report-Metrik hat Erklärtext; Drill-Down E2E |
 
 ## Phase P4 — Optimierungspaket (Stufe 3)
 
@@ -129,14 +130,28 @@ Stufen 3/4 bereits als "demnächst" mit Interessen-Button (validiert Nachfrage, 
 3. Echtlauf mit 3 realen Pilot-Hotels (bekannte Häuser des Betreibers), Scores plausibilisiert.
 4. Reproduzierbarkeits-Check: Demo-Hotel 3× auditiert, composite ±5 Punkte.
 
-## Betriebskosten-Schätzung (Größenordnung)
+## Betriebskosten-Schätzung (Größenordnung, Stand Juli 2026 — CostGuard liefert Ist-Zahlen)
 
-| Posten | Monat (früh) |
+**Pro Einheit im Vollautomatik-Modus:**
+
+| Einheit | API-Kosten |
+|---|---|
+| Mini-Audit (Gratis-Lead) | < 0,10 € |
+| Voll-Audit/Vollreport (~320 Abfragen inkl. Websuche + Extraktion + Fakten-Check + Prosa) | 5–9 € |
+| Optimierungspaket vollautomatisch | +1–3 € (im Operator-Modus: 0 €) |
+| Abo pro Hotel/Monat (Monats-Re-Audit 4–7 € + wöchentl. Light-Checks 1,50–2 € + Prosa ~0,20 €) | **6–9 €/Monat** → >90 % Rohmarge bei 99–199 € Abo |
+
+Größte Kostenhebel: Anzahl Sprachen (+~50 %/Sprache) und Websuche-/Grounding-Gebühren der
+Plattformen. Wettbewerber-Scores kosten nichts extra (gleiche Antworten, 04 §1.4).
+
+**Monatlich gesamt (früh):**
+
+| Posten | Monat |
 |---|---|
 | Hosting/DB/Mail | 30–60 € |
-| LLM-APIs: 200 Gratis-Leads × ~0,10 € + 20 Voll-Audits × ~3–5 € | 80–120 € |
-| Optimizer-Synthesen im Operator-Modus (Claude-Code-Abo des Betreibers) | 0 € API |
-| Abos (10 Kunden × Monats-Run ~2 €) | ~20 € |
+| 200 Gratis-Leads × <0,10 € + 20 Voll-Audits × ~5–9 € | 120–200 € |
+| 10 Abos × 6–9 € | 60–90 € |
+| Optimizer im Operator-Modus | 0 € API |
 | Stripe | % vom Umsatz |
 
 ## Reihenfolge-Empfehlung nach MVP

@@ -44,6 +44,9 @@ persönliche Beratung.
 | 16 | Eingangswege | Zwei Wege, eine Pipeline: Self-Service-Funnel **und** manuelle Hotel-Anlage im Admin (Betreiber wird direkt kontaktiert) |
 | 17 | Kontaktdaten & AGB | Pflicht-Ansprechpartner (Name, Position, E-Mail, Telefon) ab Kauf/Abo — Gratis-Teaser bewusst nur E-Mail; AGB-Checkbox versioniert protokolliert |
 | 18 | Oberflächen | Admin-Dashboard als visuelle Startseite (KPIs, Handlungsliste, Benachrichtigungen an Betreiber bei Kauf/Abo/Synthese); grafisches **Kundenportal** für Abo-Kunden (F-I, Magic-Link) |
+| 19 | Report-Design | Ein einheitliches Template im eigenen CI — kein Hotel-Branding, kein White-Label (frühestens P7) |
+| 20 | Erklärbarkeit | Produktprinzip: jede Zahl erklärt sich selbst (zentrale Erklär-Inhalte DE/EN, Drill-Down bis zur Original-AI-Antwort, Wissensbasis "Methodik & Hebel" im Admin als Sales-Enablement) |
+| 21 | Wettbewerber-Kosten | Wettbewerber-Scores aus denselben Discovery-Antworten (hotelneutrale Prompts) — keine separaten Läufe, halbiert die Audit-Kosten; Abo-COGS im Vollautomatik-Modus ~6–9 €/Hotel/Monat |
 
 ## Status
 
