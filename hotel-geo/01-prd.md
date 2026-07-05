@@ -129,6 +129,23 @@ Hotel-Anlage erfasst bzw. aus dem Truth-Corpus geschätzt und beim Checkout best
 (monatlicher Re-Audit, Trend, Alerts, Portal, AI-Traffic-Tracking) **+ fortlaufende
 Optimierung**: fällt im Monats-Audit etwas auf (neuer Faktenfehler, neue Lücke, neue Quelle),
 liefert der Monats-Report direkt die passende Maßnahme/den Textentwurf mit.
+
+**Der Abo-Rhythmus (Erwartungssetzung, so auch auf Pricing-Seite/AGB):**
+- **Monatlich — DER Bericht:** kompletter Re-Audit, Score-Stand vs. Wettbewerber (X,X/10),
+  Veränderungen, klare Verbesserungspunkte für den Folgemonat. Das ist das sichtbare
+  Kern-Deliverable; ein fester Bericht pro Monat.
+- **Wöchentlich — stiller Wach-Check:** reduzierte Batterie, erzeugt **keinerlei Mail** —
+  außer bei kritischem Fund (neuer schwerer Faktenfehler, Score-Einbruch): dann Sofort-Alert.
+  Verkaufsargument: "Wir überwachen kontinuierlich — Sie hören von uns nur, wenn es wichtig
+  ist." Keine Mail-Flut.
+
+**Sprachen im Abo inklusive:** bis zu **5 Audit-Sprachen** (DE + EN immer, bis zu 3 weitere
+frei wählbar, z. B. KO/ZH/JA/FR/IT) — jederzeit im Portal aktivierbar, ohne Aufpreis
+(Mehrkosten für uns: ~2–3 €/Sprache/Monat). Ablauf: Sprache aktivieren → System generiert
+muttersprachliche Prompt-Batterie (eigene Batterie-Version nur für diese Sprache; bestehende
+Sprachen bleiben vergleichbar) → ab dem nächsten Monats-Audit inklusive Sprach-Sektion im
+Bericht ("Sichtbarkeit bei koreanischen Anfragen: 2,1/10") + passende Playbook-Maßnahmen.
+Der Bericht selbst erscheint weiterhin in der gepinnten UI-Sprache (DE/EN).
 **Laufzeit:** 12 Monate Mindestlaufzeit, danach kündbar mit 3 Monaten Frist zum Monatsende;
 optional Jahres-Vorauszahlung mit Rabatt. **Launch-Taktik:** hoch starten, Pilot-Hotels erhalten
 einen ausgewiesenen "Founding Member"-Rabatt (Preise später zu erhöhen ist schwer, zu senken

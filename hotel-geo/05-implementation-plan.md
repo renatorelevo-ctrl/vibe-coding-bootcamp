@@ -89,7 +89,8 @@ Akzeptanzkriterien, reviewt Diffs.
 |---|---|---|
 | P5.1 | Stripe Billing (Abo), Subscription-Sync via Webhooks, Kündigungs-Flow | 02 §6 |
 | P5.2 | Monats-Cron: `monthly`-Runs (stabile Batterie-Version), Trend-Berechnung, Monats-Report (Web+PDF+Mail) | 04 §1.4, 01 §5 |
-| P5.3 | Alert-Engine: Diff-Regeln (neuer Fehler, Score-Einbruch), wöchentlicher Light-Check, Alert-Mails | 04 §8 |
+| P5.3 | Alert-Engine: Diff-Regeln (neuer Fehler, Score-Einbruch), wöchentlicher **stiller** Light-Check (erzeugt nie Mails außer bei kritischem Fund), Alert-Mails | 04 §8, 01 §3 Rhythmus |
+| P5.3b | Sprach-Aktivierung im Portal: bis zu 5 Audit-Sprachen wählbar, muttersprachliche Batterie-Generierung pro neuer Sprache (eigene Version/Zeitreihe), Sprach-Sektion im Monats-Report | 01 §3/§6, 04 §1.4 |
 | P5.4 | Tracking-Snippet (<2 KB, cookielos) + `/api/track` (Aggregat-Zähler, transientes Rate-Limit) + Einbau-Doku mit Datenschutz-Textbaustein | 03 §7 |
 | P5.5 | AI-Traffic-Dashboard im Abo-Report (Referrer-Klassen, Verlauf) + Grenzen-Hinweis | 01 F-H |
 | P5.6 | Kundenportal (F-I): `portal_users` + Magic-Link, Dashboard (Score-Verlauf X,X/10, Fehler-Bilanz, AI-Traffic, Maßnahmen-Checkliste, Report-Archiv), Wettbewerber-Verwaltung + Lücken-Analyse, Sprach-/Gästemix-Einstellungen, Mandanten-Scope-Helper, Zugang an Abo-Status gekoppelt | 02 §7b, 04 §5.4 |

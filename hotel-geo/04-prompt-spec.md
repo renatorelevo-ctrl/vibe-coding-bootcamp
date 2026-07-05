@@ -46,6 +46,11 @@ Subset von 15–20 (höchstgewichtete Discovery-Prompts + 3 Direct-Ask, max. 2 S
 ### 1.4 Versionierung & Vergleichbarkeit
 
 - Batterie unveränderlich pro Version; Monats-Runs nutzen dieselbe Version → Trend vergleichbar.
+- **Versionierung ist pro Sprache** (batteries hat eine language-Spalte): Aktiviert ein Hotel
+  eine neue Audit-Sprache (Abo: bis zu 5 inklusive, 01 §3), wird nur für diese Sprache eine
+  Batterie generiert — bestehende Sprachen und deren Score-Zeitreihen bleiben unberührt; die
+  neue Sprache startet ihre eigene Zeitreihe. Neue Sprach-Batterien sind muttersprachlich
+  formuliert (echte Nutzeranfragen der Zielsprache, keine Übersetzungen).
 - Neue Version nur bei: Hotelprofil-Änderung, Prompt-Vorlagen-Update, manuellem Admin-Refresh.
   Report markiert Versionswechsel ("Messmethodik aktualisiert — Vergleich eingeschränkt").
 - **Wettbewerber brauchen keine eigenen Läufe:** Discovery-Prompts nennen keinen Hotelnamen —
