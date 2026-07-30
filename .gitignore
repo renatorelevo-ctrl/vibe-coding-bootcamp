@@ -10,3 +10,7 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .vercel
+
+# Multi-Model Dev-Team (lokale Keys & Task-Zwischendatei)
+.env.devteam
+.worker-task.md

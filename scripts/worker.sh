@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# Delegiert eine Implementierungsaufgabe an den günstigen Worker (DeepSeek/GLM).
+# Läuft als headless Claude Code gegen einen Anthropic-kompatiblen Endpoint —
+# verbraucht also KEIN Claude-Abo-Kontingent.
+#
+# Nutzung:
+#   scripts/worker.sh "Aufgabenbeschreibung"
+#   scripts/worker.sh --file .worker-task.md
+#
+# Konfiguration über .env.devteam (siehe .env.devteam.example).
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+if [ -f .env.devteam ]; then
+  set -a
+  # shellcheck disable=SC1091
+  source .env.devteam
+  set +a
+fi
+
+PROVIDER="${WORKER_PROVIDER:-deepseek}"
+case "$PROVIDER" in
+  deepseek)
+    BASE_URL="https://api.deepseek.com/anthropic"
+    TOKEN="${DEEPSEEK_API_KEY:?DEEPSEEK_API_KEY fehlt — in .env.devteam eintragen}"
+    ;;
+  glm)
+    BASE_URL="https://api.z.ai/api/anthropic"
+    TOKEN="${GLM_API_KEY:?GLM_API_KEY fehlt — in .env.devteam eintragen}"
+    ;;
+  *)
+    echo "Unbekannter WORKER_PROVIDER: '$PROVIDER' (erlaubt: deepseek, glm)" >&2
+    exit 1
+    ;;
+esac
+
+BRANCH="$(git branch --show-current)"
+if [ "$BRANCH" = "main" ] || [ -z "$BRANCH" ]; then
+  echo "Abbruch: Der Worker arbeitet nie auf 'main'. Erst einen Feature-Branch erstellen." >&2
+  exit 1
+fi
+
+if [ "${1:-}" = "--file" ]; then
+  TASK="$(cat "${2:?Pfad zur Task-Datei fehlt}")"
+else
+  TASK="${1:?Aufgabenbeschreibung fehlt (als Argument oder mit --file <datei>)}"
+fi
+
+PROMPT="Du bist der Implementierungs-Worker in diesem Repository (Branch: $BRANCH).
+
+Aufgabe:
+$TASK
+
+Regeln:
+- Falls eine PLAN.md existiert, halte dich an den Plan.
+- Bleib strikt bei der Aufgabe — keine ungefragten Umbauten an anderem Code.
+- Prüfe dein Ergebnis mit 'npm run build' und behebe Fehler, bevor du fertig meldest.
+- Committe deine Änderungen auf dem aktuellen Branch mit einer aussagekräftigen Commit-Message.
+- Antworte am Ende mit einer kurzen Zusammenfassung: was wurde geändert, welche Dateien, Ergebnis von npm run build."
+
+echo ">> Worker ($PROVIDER) startet auf Branch '$BRANCH' ..." >&2
+
+env -u ANTHROPIC_API_KEY \
+  ANTHROPIC_BASE_URL="$BASE_URL" \
+  ANTHROPIC_AUTH_TOKEN="$TOKEN" \
+  claude -p "$PROMPT" \
+  --permission-mode acceptEdits \
+  --allowedTools "Read,Glob,Grep,Edit,Write,Bash(npm run build),Bash(npm install:*),Bash(git status),Bash(git diff:*),Bash(git log:*),Bash(git add:*),Bash(git commit:*)"
