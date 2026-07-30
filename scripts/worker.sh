@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Delegiert eine Implementierungsaufgabe an den günstigen Worker (DeepSeek/GLM).
-# Läuft als headless Claude Code gegen einen Anthropic-kompatiblen Endpoint —
-# verbraucht also KEIN Claude-Abo-Kontingent.
+# Delegiert eine Implementierungsaufgabe an den günstigen Worker.
+# Standard: Codex (GPT-5.6 Luna) über das ChatGPT-Plus-Abo — kein API-Key nötig.
+# Alternativ: DeepSeek/GLM per API (headless Claude Code gegen deren Endpoint).
+# Verbraucht in keinem Fall Claude-Abo-Kontingent.
 #
 # Nutzung:
 #   scripts/worker.sh "Aufgabenbeschreibung"
@@ -20,21 +21,7 @@ if [ -f .env.devteam ]; then
   set +a
 fi
 
-PROVIDER="${WORKER_PROVIDER:-deepseek}"
-case "$PROVIDER" in
-  deepseek)
-    BASE_URL="https://api.deepseek.com/anthropic"
-    TOKEN="${DEEPSEEK_API_KEY:?DEEPSEEK_API_KEY fehlt — in .env.devteam eintragen}"
-    ;;
-  glm)
-    BASE_URL="https://api.z.ai/api/anthropic"
-    TOKEN="${GLM_API_KEY:?GLM_API_KEY fehlt — in .env.devteam eintragen}"
-    ;;
-  *)
-    echo "Unbekannter WORKER_PROVIDER: '$PROVIDER' (erlaubt: deepseek, glm)" >&2
-    exit 1
-    ;;
-esac
+PROVIDER="${WORKER_PROVIDER:-codex}"
 
 BRANCH="$(git branch --show-current)"
 if [ "$BRANCH" = "main" ] || [ -z "$BRANCH" ]; then
@@ -62,9 +49,38 @@ Regeln:
 
 echo ">> Worker ($PROVIDER) startet auf Branch '$BRANCH' ..." >&2
 
-env -u ANTHROPIC_API_KEY \
-  ANTHROPIC_BASE_URL="$BASE_URL" \
-  ANTHROPIC_AUTH_TOKEN="$TOKEN" \
-  claude -p "$PROMPT" \
-  --permission-mode acceptEdits \
-  --allowedTools "Read,Glob,Grep,Edit,Write,Bash(npm run build),Bash(npm install:*),Bash(git status),Bash(git diff:*),Bash(git log:*),Bash(git add:*),Bash(git commit:*)"
+case "$PROVIDER" in
+  codex)
+    if ! command -v codex >/dev/null 2>&1; then
+      echo "Codex CLI nicht gefunden. Installieren mit: npm install -g @openai/codex && codex login" >&2
+      exit 1
+    fi
+    # Luna braucht Codex CLI >= 0.144.0. Bei Problemen CODEX_WORKER_MODEL=""
+    # setzen, dann nutzt Codex sein Standardmodell.
+    MODEL="${CODEX_WORKER_MODEL-gpt-5.6-luna}"
+    MODEL_ARGS=()
+    if [ -n "$MODEL" ]; then
+      MODEL_ARGS=(-m "$MODEL")
+    fi
+    codex exec --sandbox workspace-write "${MODEL_ARGS[@]}" "$PROMPT"
+    ;;
+  deepseek|glm)
+    if [ "$PROVIDER" = "deepseek" ]; then
+      BASE_URL="https://api.deepseek.com/anthropic"
+      TOKEN="${DEEPSEEK_API_KEY:?DEEPSEEK_API_KEY fehlt — in .env.devteam eintragen}"
+    else
+      BASE_URL="https://api.z.ai/api/anthropic"
+      TOKEN="${GLM_API_KEY:?GLM_API_KEY fehlt — in .env.devteam eintragen}"
+    fi
+    env -u ANTHROPIC_API_KEY \
+      ANTHROPIC_BASE_URL="$BASE_URL" \
+      ANTHROPIC_AUTH_TOKEN="$TOKEN" \
+      claude -p "$PROMPT" \
+      --permission-mode acceptEdits \
+      --allowedTools "Read,Glob,Grep,Edit,Write,Bash(npm run build),Bash(npm install:*),Bash(git status),Bash(git diff:*),Bash(git log:*),Bash(git add:*),Bash(git commit:*)"
+    ;;
+  *)
+    echo "Unbekannter WORKER_PROVIDER: '$PROVIDER' (erlaubt: codex, deepseek, glm)" >&2
+    exit 1
+    ;;
+esac

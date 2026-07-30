@@ -11,8 +11,23 @@ set -euo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
+if [ -f .env.devteam ]; then
+  set -a
+  # shellcheck disable=SC1091
+  source .env.devteam
+  set +a
+fi
+
 BASE="${1:-main}"
 BRANCH="$(git branch --show-current)"
+
+# Review absichtlich NICHT mit dem Worker-Modell (Luna) laufen lassen:
+# leer = Codex-Standardmodell, damit ein anderes Modell prüft als baut.
+MODEL="${CODEX_REVIEW_MODEL-}"
+MODEL_ARGS=()
+if [ -n "$MODEL" ]; then
+  MODEL_ARGS=(-m "$MODEL")
+fi
 
 if ! command -v codex >/dev/null 2>&1; then
   echo "Codex CLI nicht gefunden. Installieren mit: npm install -g @openai/codex" >&2
@@ -27,4 +42,4 @@ fi
 
 echo ">> Codex reviewt '$BRANCH' gegen '$BASE' ..." >&2
 
-codex exec "Führe ein Code-Review durch, wie in AGENTS.md unter 'Rolle: Reviewer' beschrieben. Zu prüfen sind alle Änderungen des Branches '$BRANCH' gegenüber '$BASE' (git diff $BASE...HEAD). Gib dein Ergebnis exakt im Verdict-Format aus AGENTS.md aus — auf Deutsch und für einen Nicht-Programmierer verständlich. Ändere keine Dateien."
+codex exec "${MODEL_ARGS[@]}" "Führe ein Code-Review durch, wie in AGENTS.md unter 'Rolle: Reviewer' beschrieben. Zu prüfen sind alle Änderungen des Branches '$BRANCH' gegenüber '$BASE' (git diff $BASE...HEAD). Gib dein Ergebnis exakt im Verdict-Format aus AGENTS.md aus — auf Deutsch und für einen Nicht-Programmierer verständlich. Ändere keine Dateien."

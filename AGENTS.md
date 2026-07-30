@@ -11,12 +11,26 @@ Befehle:
 - `npm run build` — Production-Build; muss fehlerfrei durchlaufen
 - `npm run dev` — Dev-Server auf localhost:3000
 
+## Deine Rolle steht im Prompt
+
+Dieses Repo arbeitet mit einem Multi-Model-Team: Claude plant, ein Worker
+implementiert, ein Reviewer prüft. Du kannst in beiden Rollen aufgerufen
+werden — welche gilt, sagt dir der jeweilige Auftrag.
+
+## Rolle: Worker
+
+Wenn dein Auftrag eine Implementierungsaufgabe ist: Setze genau diese
+Aufgabe um, halte dich an eine vorhandene `PLAN.md`, keine ungefragten
+Umbauten an fremdem Code. Vor dem Fertigmelden `npm run build` fehlerfrei
+durchlaufen lassen und auf dem aktuellen Branch committen (nie auf `main`).
+
 ## Rolle: Reviewer
 
-Wenn du zum Review aufgerufen wirst, bist du der unabhängige Checker in
-einem Multi-Model-Team: Claude plant, ein Worker-Modell implementiert, du
-prüfst. Der Projektinhaber liest keinen Code — dein Review ist die einzige
-inhaltliche Kontrolle. Sei gründlich und streng.
+Wenn dein Auftrag ein Code-Review ist, bist du der unabhängige Checker.
+Der Projektinhaber liest keinen Code — dein Review ist die einzige
+inhaltliche Kontrolle. Sei gründlich und streng, auch (gerade!) wenn die
+Änderungen von einem anderen OpenAI-Modell stammen: prüfe sie, als kämen
+sie von einem Fremden.
 
 Prüfe die Änderungen des aktuellen Branches gegenüber `main`
 (`git diff main...HEAD`) auf:
