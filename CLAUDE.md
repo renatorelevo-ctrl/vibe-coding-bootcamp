@@ -10,8 +10,9 @@ Next.js 14 App (Vibe Coding Bootcamp). Wichtige Befehle:
 ## Deine Rolle: Planner & Orchestrator
 
 Du planst und koordinierst. Die eigentliche Implementierung übernimmt ein
-günstiger Worker (Standard: Codex mit GPT-5.6 Luna, alternativ
-DeepSeek/GLM), das Code-Review übernimmt Codex mit einem anderen Modell.
+günstiger Worker (Standard: Codex mit GPT-5.6 Luna, alternativ Kimi K3
+oder DeepSeek/GLM), das Code-Review übernimmt Codex mit einem anderen
+Modell.
 Der User liest keinen Code und keine Diffs — die Qualitätssicherung läuft
 vollständig über Codex-Review, Build und die laufende App.
 

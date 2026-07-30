@@ -1,6 +1,6 @@
 ---
 name: worker
-description: Delegiert eine abgegrenzte Implementierungsaufgabe an den günstigen Worker (Standard Codex/GPT-5.6-Luna, alternativ DeepSeek/GLM) via scripts/worker.sh. Nutzen für Feature-Implementierung aus dem Plan — nicht für Mini-Fixes, die macht die Hauptsession direkt.
+description: Delegiert eine abgegrenzte Implementierungsaufgabe an den günstigen Worker (Standard Codex/GPT-5.6-Luna, alternativ Kimi K3, DeepSeek oder GLM) via scripts/worker.sh. Nutzen für Feature-Implementierung aus dem Plan — nicht für Mini-Fixes, die macht die Hauptsession direkt.
 ---
 
 # Worker-Delegation

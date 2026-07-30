@@ -64,8 +64,14 @@ case "$PROVIDER" in
     fi
     codex exec --sandbox workspace-write "${MODEL_ARGS[@]}" "$PROMPT"
     ;;
-  deepseek|glm)
-    if [ "$PROVIDER" = "deepseek" ]; then
+  kimi|deepseek|glm)
+    MODEL_ENV=()
+    if [ "$PROVIDER" = "kimi" ]; then
+      # Kimi Code Membership: eigener Abo-Endpoint, Key aus der Kimi Code Console
+      BASE_URL="https://api.kimi.com/coding/"
+      TOKEN="${KIMI_API_KEY:?KIMI_API_KEY fehlt — in .env.devteam eintragen (Key aus der Kimi Code Console)}"
+      MODEL_ENV=(ANTHROPIC_MODEL="${KIMI_WORKER_MODEL:-k3}")
+    elif [ "$PROVIDER" = "deepseek" ]; then
       BASE_URL="https://api.deepseek.com/anthropic"
       TOKEN="${DEEPSEEK_API_KEY:?DEEPSEEK_API_KEY fehlt — in .env.devteam eintragen}"
     else
@@ -75,12 +81,13 @@ case "$PROVIDER" in
     env -u ANTHROPIC_API_KEY \
       ANTHROPIC_BASE_URL="$BASE_URL" \
       ANTHROPIC_AUTH_TOKEN="$TOKEN" \
+      "${MODEL_ENV[@]}" \
       claude -p "$PROMPT" \
       --permission-mode acceptEdits \
       --allowedTools "Read,Glob,Grep,Edit,Write,Bash(npm run build),Bash(npm install:*),Bash(git status),Bash(git diff:*),Bash(git log:*),Bash(git add:*),Bash(git commit:*)"
     ;;
   *)
-    echo "Unbekannter WORKER_PROVIDER: '$PROVIDER' (erlaubt: codex, deepseek, glm)" >&2
+    echo "Unbekannter WORKER_PROVIDER: '$PROVIDER' (erlaubt: codex, kimi, deepseek, glm)" >&2
     exit 1
     ;;
 esac
